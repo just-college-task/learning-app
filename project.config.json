@@ -1,6 +1,6 @@
 {
-  "miniprogramRoot": "dist/",
-  "projectname": "app",
+  "miniprogramRoot": "./dist",
+  "projectname": "learning-app",
   "description": "",
   "appid": "touristappid",
   "setting": {
@@ -9,24 +9,7 @@
     "enhance": false,
     "compileHotReLoad": false,
     "postcss": false,
-    "minified": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "minifyWXSS": false
+    "minified": false
   },
-  "compileType": "miniprogram",
-  "libVersion": "2.17.0",
-  "srcMiniprogramRoot": "dist/",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "condition": {},
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  }
+  "compileType": "miniprogram"
 }

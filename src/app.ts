@@ -1,18 +1,13 @@
-import { Component, PropsWithChildren } from 'react'
+import { createApp } from 'vue'
+import { Button, Toast } from '@nutui/nutui-taro';
+
 import './app.scss'
 
-class App extends Component<PropsWithChildren> {
+const App = createApp({
+  onShow (options) {},
+  // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
+})
 
-  componentDidMount () {}
-
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  render () {
-    // this.props.children 是将要会渲染的页面
-    return this.props.children
-  }
-}
+App.use(Button).use(Toast)
 
 export default App
