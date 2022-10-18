@@ -20,7 +20,6 @@
     "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["./src", "./types"],
-  "exclude": ["**/*.d.ts"],
+  "include": ["./src", "./types", "./src/**/*.vue"],
   "compileOnSave": false
 }

@@ -11,21 +11,18 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html'],
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: 'vue3',
   compiler: 'webpack5',
   cache: {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
-  sass:{
-    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+  sass: {
+    data: `@import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";`
   },
   mini: {
     postcss: {
@@ -57,8 +54,7 @@ const config = {
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -71,7 +67,7 @@ const config = {
   }
 }
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }
