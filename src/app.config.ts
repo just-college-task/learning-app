@@ -17,6 +17,10 @@ export default defineAppConfig({
         text: '首页'
       },
       {
+        pagePath: 'pages/courses/index',
+        text: '课程'
+      },
+      {
         pagePath: 'pages/my/index',
         text: '我的'
       }
