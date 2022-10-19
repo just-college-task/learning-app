@@ -1,8 +1,27 @@
+<script setup lang="ts">
+import Taro from '@tarojs/taro'
+import { computed } from 'vue'
+import { tabs } from '@/definitions'
+import { useTabStore } from '@/store'
+
+const tabStore = useTabStore()
+const activeNameRef = computed(() => tabStore.activeName)
+
+function handleTabSwitch(e: any) {
+  tabStore.setActiveName(e.name)
+  Taro.switchTab({ url: `/${e.name}` })
+}
+</script>
+
 <template>
-  <nut-tabbar size="18px" @tab-switch="tapSwitch">
-    <nut-tabbar-item tab-title="首页" icon="home"></nut-tabbar-item>
-    <nut-tabbar-item tab-title="课程" icon="category"></nut-tabbar-item>
-    <nut-tabbar-item tab-title="我的" icon="my"></nut-tabbar-item>
+  <nut-tabbar @tab-switch="handleTabSwitch" :visible="activeNameRef">
+    <nut-tabbar-item
+      v-for="tab in tabs"
+      :name="tab.pagePath"
+      :key="tab.pagePath"
+      :tab-title="tab.text"
+      :icon="tab.iconName"
+    ></nut-tabbar-item>
   </nut-tabbar>
 </template>
 
@@ -11,27 +30,3 @@
 @import '@nutui/nutui-taro/dist/packages/tabbaritem/index.scss';
 @import '@nutui/nutui-taro/dist/styles/font/iconfont.css';
 </style>
-
-<script lang="ts">
-import Taro from '@tarojs/taro'
-import { ref } from 'vue';
-export default {
-
-  setup() {
-    const pages = ref([
-      '/pages/index/index',
-      '/pages/courses/index',
-      '/pages/my/index'
-    ])
-    function tapSwitch(item, index) {
-      Taro.switchTab({
-        url: pages.value[index]
-      })
-    }
-
-    return {
-      tapSwitch
-    }
-  }
-}
-</script>

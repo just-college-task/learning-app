@@ -1,3 +1,5 @@
+import { tabList } from './definitions'
+
 export default defineAppConfig({
   pages: ['pages/index/index', 'pages/courses/index', 'pages/my/index'],
   window: {
@@ -11,19 +13,6 @@ export default defineAppConfig({
     color: '#000000',
     selectedColor: '#DC143C',
     backgroundColor: '#ffffff',
-    list: [
-      {
-        pagePath: 'pages/index/index',
-        text: '首页'
-      },
-      {
-        pagePath: 'pages/courses/index',
-        text: '课程'
-      },
-      {
-        pagePath: 'pages/my/index',
-        text: '我的'
-      }
-    ]
+    list: tabList
   }
 })

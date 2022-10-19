@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'learning-app',
   date: '2022-10-17',
@@ -10,7 +12,10 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-html'],
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src')
+  },
+  plugins: ['@tarojs/plugin-html', 'taro-plugin-pinia'],
   defineConstants: {},
   copy: {
     patterns: [],

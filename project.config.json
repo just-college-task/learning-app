@@ -15,6 +15,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "packNpmRelationList": [],
     "minifyWXSS": false,
     "minifyWXML": false
   },
