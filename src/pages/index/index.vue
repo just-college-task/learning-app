@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useCounterStore } from '@/store'
-import { View } from '@tarojs/components'
+// import { View } from '@tarojs/components'
 
 const counter = useCounterStore()
 const count = computed(() => counter.count)

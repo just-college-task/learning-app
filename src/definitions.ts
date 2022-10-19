@@ -13,6 +13,11 @@ export const tabs: Tab[] = [
     iconName: 'home'
   },
   {
+    pagePath: 'pages/courses/index',
+    text: '课程',
+    iconName: 'category'
+  },
+  {
     pagePath: 'pages/my/index',
     text: '我的',
     iconName: 'my'
