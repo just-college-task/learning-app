@@ -1,5 +1,3 @@
 <template>
-  <view>
-    Course Page
-  </view>
+  <view> Course Page </view>
 </template>

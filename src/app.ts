@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
-import { Button, Toast, Tabbar, TabbarItem, Icon } from '@nutui/nutui-taro'
+import { Button, Toast, Tabbar, TabbarItem, Icon, Swiper, SwiperItem } from '@nutui/nutui-taro'
 import { createPinia } from 'pinia'
 
-const nutuiComponents = [Button, Toast, Tabbar, TabbarItem, Icon]
+const nutuiComponents = [Button, Toast, Tabbar, TabbarItem, Icon, Swiper, SwiperItem]
 
 import './app.scss'
 
