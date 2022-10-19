@@ -14,8 +14,6 @@ function handleIncrementClicked() {
 <template>
   <view class="index">
     {{ count }}
-    <nut-button @click="handleIncrementClicked">
-      +1
-    </nut-button>
+    <nut-button @click="handleIncrementClicked"> +1 </nut-button>
   </view>
 </template>
