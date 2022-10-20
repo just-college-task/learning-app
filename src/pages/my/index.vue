@@ -1,8 +1,11 @@
+<script setup lang="ts"></script>
+
 <template>
   <view class="my">
-    <text class="title">My Page</text>
+    <view class="back-curves"></view>
     <view class="userCard">
-      <text>Username</text>
+      <nut-avatar size="80" icon="image"> </nut-avatar>
+      <text>请登入/注册</text>
     </view>
   </view>
 </template>
@@ -11,8 +14,32 @@
 .my {
   display: flex;
   justify-content: center;
-  .title {
+
+  .back-curves {
+    width: 100%;
+    height: 170px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10% 10% 50% 50% / 0% 0% 35% 35%;
+    background-color: #2c68ff;
+  }
+
+  .userCard {
+    display: flex;
+    width: 350px;
+    height: 138px;
+    align-items: center;
+    z-index: 1;
+    margin: 40px 0 0 0;
+
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
     font-weight: bold;
+
+    .nut-avatar {
+      margin: 0 31px 0 13px;
+    }
   }
 }
 </style>

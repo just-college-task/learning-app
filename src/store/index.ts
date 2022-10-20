@@ -23,3 +23,17 @@ export const useTabStore = defineStore('tab', () => {
     setActiveName
   }
 })
+
+//userStore
+export const useUserStore = defineStore('user', () => {
+  const username = ref('')
+
+  function setUsername(newUsername: string) {
+    username.value = newUsername
+  }
+
+  return {
+    username,
+    setUsername
+  }
+})
