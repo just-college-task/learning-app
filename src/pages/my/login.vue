@@ -13,6 +13,8 @@ function setLogin() {
 <template>
   <view class="main">
     <view class="bg"></view>
+    <text class="lg-title">云课堂</text>
+    <input placeholder="用户名/手机号" />
     <button @click="setLogin">Login</button>
   </view>
 </template>
@@ -23,11 +25,22 @@ function setLogin() {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
   .bg {
     width: 272px;
-    height: 305px;
+    height: 258px;
     margin-top: 70px;
     background-image: url('../../../public/static/img/bg.png');
+  }
+
+  .lg-title {
+    width: 103px;
+    height: 42px;
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 46px;
   }
 }
 </style>
