@@ -7,11 +7,22 @@ import {
   Icon,
   Swiper,
   SwiperItem,
-  Avatar
+  Avatar,
+  Progress
 } from '@nutui/nutui-taro'
 import { createPinia } from 'pinia'
 
-const nutuiComponents = [Button, Toast, Tabbar, TabbarItem, Icon, Swiper, SwiperItem, Avatar]
+const nutuiComponents = [
+  Button,
+  Toast,
+  Tabbar,
+  TabbarItem,
+  Icon,
+  Swiper,
+  SwiperItem,
+  Avatar,
+  Progress
+]
 
 import './app.scss'
 

@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "mrmlnc.vscode-scss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Vue.volar"
+  ]
+}
