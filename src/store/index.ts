@@ -27,13 +27,20 @@ export const useTabStore = defineStore('tab', () => {
 //userStore
 export const useUserStore = defineStore('user', () => {
   const username = ref('')
+  const isLogin = ref(false)
 
   function setUsername(newUsername: string) {
     username.value = newUsername
   }
 
+  function setIsLogin(value: boolean) {
+    isLogin.value = value
+  }
+
   return {
     username,
-    setUsername
+    isLogin,
+    setUsername,
+    setIsLogin
   }
 })

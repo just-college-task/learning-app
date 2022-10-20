@@ -1,9 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Taro from '@tarojs/taro'
+import { useUserStore } from '@/store'
+import { computed } from 'vue'
+
+const userStore = useUserStore()
+const isLoginRef = computed(() => userStore.isLogin)
+
+function handleClick() {
+  if (!isLoginRef.value) {
+    Taro.navigateTo({
+      url: '/pages/my/login'
+    })
+  }
+}
+</script>
 
 <template>
   <view class="my">
     <view class="back-curves"></view>
-    <view class="userCard">
+    <view class="userCard" @click="handleClick">
       <nut-avatar size="80" icon="image"> </nut-avatar>
       <text>请登入/注册</text>
     </view>

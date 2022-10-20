@@ -1,7 +1,13 @@
 import { tabList } from './definitions'
 
 export default defineAppConfig({
-  pages: ['pages/index/index', 'pages/courses/index', 'pages/my/index'],
+  pages: [
+    'pages/index/index',
+    'pages/courses/index',
+    'pages/my/index',
+    'pages/my/login',
+    'pages/my/register'
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
