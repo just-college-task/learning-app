@@ -1,3 +1,4 @@
+import UnoCSS from 'unocss/webpack'
 const path = require('path')
 
 const config = {
@@ -51,6 +52,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      // https://github.com/unocss/unocss
+      chain.plugin('unocss').use(UnoCSS())
     }
   },
   h5: {
@@ -69,6 +74,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      // https://github.com/unocss/unocss
+      chain.plugin('unocss').use(UnoCSS())
     }
   }
 }
