@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
@@ -8,14 +9,27 @@ const userStore = useUserStore()
 function setLogin() {
   // userStore.setIsLogin(true)
 }
+
+function navigateToRegister() {
+  Taro.navigateTo({
+    url: '/pages/my/register'
+  })
+}
 </script>
 
 <template>
   <view class="main">
     <view class="bg"></view>
     <text class="lg-title">云课堂</text>
-    <input placeholder="用户名/手机号" />
-    <button @click="setLogin">Login</button>
+    <view class="active">
+      <input placeholder="用户名/手机号" class="input-user" />
+      <input placeholder="密码" class="input-passwd" />
+      <view class="w-full flex justify-between">
+        <text class="text-gray-400">忘记密码</text>
+        <view @click="navigateToRegister">快速注册</view>
+      </view>
+      <nut-button type="primary">登入</nut-button>
+    </view>
   </view>
 </template>
 
@@ -27,20 +41,45 @@ function setLogin() {
   align-items: center;
 
   .bg {
-    width: 272px;
-    height: 258px;
+    width: 423px;
+    height: 450px;
     margin-top: 70px;
     background-image: url('../../../public/static/img/bg.png');
   }
 
   .lg-title {
-    width: 103px;
+    width: 123px;
     height: 42px;
     font-family: 'Noto Sans SC';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 46px;
+
+    margin-bottom: 35px;
+  }
+
+  .active {
+    display: flex;
+    flex-flow: column;
+    width: 423px;
+    height: 450px;
+    align-items: center;
+
+    input {
+      width: 100%;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.04);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+    }
+
+    .nut-button {
+      margin-top: 40px;
+      width: 252px;
+      height: 30px;
+    }
   }
 }
 </style>

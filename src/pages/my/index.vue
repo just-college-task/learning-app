@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
@@ -19,7 +20,7 @@ function handleClick() {
   <view class="my">
     <view class="back-curves"></view>
     <view class="userCard" @click="handleClick">
-      <nut-avatar size="80" icon="image"> </nut-avatar>
+      <nut-avatar size="75" icon="image"> </nut-avatar>
       <text>请登入/注册</text>
     </view>
   </view>
@@ -32,7 +33,7 @@ function handleClick() {
 
   .back-curves {
     width: 100%;
-    height: 170px;
+    height: 210px;
     position: absolute;
     z-index: -1;
     border-radius: 10% 10% 50% 50% / 0% 0% 35% 35%;
@@ -41,11 +42,11 @@ function handleClick() {
 
   .userCard {
     display: flex;
-    width: 350px;
-    height: 138px;
+    width: 530px;
+    height: 170px;
     align-items: center;
     z-index: 1;
-    margin: 40px 0 0 0;
+    margin: 60px 0 0 0;
 
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
