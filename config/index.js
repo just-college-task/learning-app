@@ -27,7 +27,8 @@ const config = {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
   sass: {
-    data: `@import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";`
+    data: `@import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";`,
+    resource: ['src/styles/variables.scss', 'src/styles/mixins.scss']
   },
   mini: {
     postcss: {
@@ -72,7 +73,7 @@ const config = {
   }
 }
 
-module.exports = function(merge) {
+module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }
