@@ -29,4 +29,13 @@ function handleTabSwitch(e: any) {
 @import '@nutui/nutui-taro/dist/packages/tabbar/index.scss';
 @import '@nutui/nutui-taro/dist/packages/tabbaritem/index.scss';
 @import '@nutui/nutui-taro/dist/styles/font/iconfont.css';
+
+.nut-tabbar {
+  height: 56px;
+
+  .nut-tabbar-item_icon-box_nav-word {
+    margin-top: 6px;
+    line-height: 14px;
+  }
+}
 </style>
