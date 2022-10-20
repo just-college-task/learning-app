@@ -1,9 +1,10 @@
+import UnoCSS from 'unocss/webpack'
 const path = require('path')
 
 const config = {
   projectName: 'learning-app',
   date: '2022-10-17',
-  designWidth: 375,
+  designWidth: 640,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
@@ -51,6 +52,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      // https://github.com/unocss/unocss
+      chain.plugin('unocss').use(UnoCSS())
     }
   },
   h5: {
@@ -69,6 +74,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain) {
+      // https://github.com/unocss/unocss
+      chain.plugin('unocss').use(UnoCSS())
     }
   }
 }

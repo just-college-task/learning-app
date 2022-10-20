@@ -24,6 +24,7 @@ const nutuiComponents = [
   Progress
 ]
 
+import 'uno.css'
 import './app.scss'
 
 const App = createApp({
