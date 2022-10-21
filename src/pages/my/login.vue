@@ -78,7 +78,7 @@ function navigateToRegister() {
     .nut-button {
       margin-top: 40px;
       width: 252px;
-      height: 30px;
+      height: 35px;
     }
   }
 }
