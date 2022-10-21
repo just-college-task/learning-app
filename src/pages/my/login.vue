@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
-import { login } from '@/api/user'
+import { register } from '@/api/user'
 
 Taro.setNavigationBarTitle({ title: '登入' })
 
@@ -15,6 +15,15 @@ function navigateToRegister() {
   Taro.navigateTo({
     url: '/pages/my/register'
   })
+}
+
+function testAPI() {
+  const data = {
+    phoneNumber: '11231231231',
+    nickname: '11231231231',
+    password: 'gaowanlu'
+  }
+  register(data)
 }
 </script>
 
@@ -30,6 +39,7 @@ function navigateToRegister() {
         <view @click="navigateToRegister">快速注册</view>
       </view>
       <nut-button type="primary">登入</nut-button>
+      <nut-button type="primary" @click="testAPI">注册</nut-button>
     </view>
   </view>
 </template>

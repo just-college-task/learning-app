@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import Taro from "@tarojs/taro"
-
+import type { response } from "../../types/api"
 const apiConfig = {
     baseUrl: process.env.API_HOST
 }
@@ -34,14 +34,13 @@ const request = async (method, url, params) => {
         isShowLoad: false,
         url: apiConfig.baseUrl + url,
         data: params,
-        success(res) {
-            console.log(res);
-            if (res?.statusCode == 500) {
+        success(res: response) {
+            if (res.statusCode == 500) {
                 Taro.showToast({
-                    title: "服务器发生错误",
+                    title: res.data?.message,
                     icon: "error",
                     duration: 3000
-                })
+                })              
             }
         },
         error(e) {
