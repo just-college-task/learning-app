@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
+import { login } from '@/api/user'
 
 Taro.setNavigationBarTitle({ title: '登入' })
 

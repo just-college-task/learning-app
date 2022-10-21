@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
-export function login(params) {
-  return request.get('/auth/signin', params)
+export function login(data) {
+  return request.post('/auth/signin', data)
 }
 
 export function register(data) {

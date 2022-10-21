@@ -10,9 +10,11 @@ const interceptor = function (chain: any) {
     const requestParams = chain.requestParams
     // const { method, data, url } = requestParams
     const token = Taro.getStorageSync('TOKEN') //get token from Taro Storage
-    requestParams.header = {
-        ...requestParams.header,
-        Authorization: 'Bearer' + token
+    if (token) {
+        requestParams.header = {
+            ...requestParams.header,
+            Authorization: 'Bearer ' + token
+        }
     }
 
     return chain.proceed(requestParams)
@@ -34,6 +36,13 @@ const request = async (method, url, params) => {
         data: params,
         success(res) {
             console.log(res);
+            if (res?.statusCode == 500) {
+                Taro.showToast({
+                    title: "服务器发生错误",
+                    icon: "error",
+                    duration: 3000
+                })
+            }
         },
         error(e) {
             console.log('api', 'query fail:', e)
