@@ -8,7 +8,7 @@ Taro.setNavigationBarTitle({ title: '登入' })
 
 const userStore = useUserStore()
 function setLogin() {
-  // userStore.setIsLogin(true)
+  userStore.setIsLogin(true)
 }
 
 function navigateToRegister() {
@@ -38,7 +38,7 @@ function testAPI() {
         <text class="text-gray-400">忘记密码</text>
         <view @click="navigateToRegister">快速注册</view>
       </view>
-      <nut-button type="primary">登入</nut-button>
+      <nut-button type="primary" @click="setLogin">登入</nut-button>
       <nut-button type="primary" @click="testAPI">注册</nut-button>
     </view>
   </view>
