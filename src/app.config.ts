@@ -6,7 +6,8 @@ export default defineAppConfig({
     'pages/courses/index',
     'pages/my/index',
     'pages/my/login',
-    'pages/my/register'
+    'pages/my/register',
+    'pages/course-detail/index'
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -8,7 +8,9 @@ import {
   Swiper,
   SwiperItem,
   Avatar,
-  Progress
+  Progress,
+  Tabs,
+  TabPane
 } from '@nutui/nutui-taro'
 import { createPinia } from 'pinia'
 
@@ -21,7 +23,9 @@ const nutuiComponents = [
   Swiper,
   SwiperItem,
   Avatar,
-  Progress
+  Progress,
+  Tabs,
+  TabPane
 ]
 
 import 'uno.css'
