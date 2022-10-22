@@ -4,7 +4,7 @@ const path = require('path')
 const config = {
   projectName: 'learning-app',
   date: '2022-10-17',
-  designWidth: 640,
+  designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,

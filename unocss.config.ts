@@ -9,7 +9,7 @@ export default defineConfig({
       isH5: process.env.TARO_ENV === 'h5',
       platform: 'taro',
       taroWebpack: 'webpack5',
-      designWidth: 640,
+      designWidth: 750,
       deviceRatio: {
         640: 2.34 / 2,
         750: 1,
@@ -26,5 +26,35 @@ export default defineConfig({
     }),
 
     transformerClass()
+  ],
+  rules: [
+    [
+      'text-big-title',
+      {
+        'font-size': '40rpx',
+        'line-height': '72rpx'
+      }
+    ],
+    [
+      'text-description',
+      {
+        'font-size': '24rpx',
+        'line-height': '36rpx'
+      }
+    ],
+    [
+      'text-small-title',
+      {
+        'font-size': '36rpx',
+        'line-height': '56rpx'
+      }
+    ],
+    [
+      'text-normal',
+      {
+        'font-size': '32rpx',
+        'line-height': '48rpx'
+      }
+    ]
   ]
 })
