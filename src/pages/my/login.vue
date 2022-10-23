@@ -8,7 +8,7 @@ Taro.setNavigationBarTitle({ title: '登入' })
 
 const userStore = useUserStore()
 function setLogin() {
-  // userStore.setIsLogin(true)
+  userStore.setIsLogin(true)
 }
 
 function navigateToRegister() {
@@ -25,6 +25,18 @@ function testAPI() {
   }
   register(data)
 }
+
+function wechatLogin() {
+  userStore.wechatLogin()
+  Taro.getUserProfile({
+    success: res => {
+      //test
+      console.log(res)
+    },
+    desc: '用于完善会员资料',
+    lang: 'zh_CN'
+  })
+}
 </script>
 
 <template>
@@ -38,8 +50,9 @@ function testAPI() {
         <text class="text-gray-400">忘记密码</text>
         <view @click="navigateToRegister">快速注册</view>
       </view>
-      <nut-button type="primary">登入</nut-button>
+      <nut-button type="primary" @click="setLogin">登录</nut-button>
       <nut-button type="primary" @click="testAPI">注册</nut-button>
+      <nut-button type="primary" @click="wechatLogin">微信登录</nut-button>
     </view>
   </view>
 </template>
@@ -87,7 +100,7 @@ function testAPI() {
     }
 
     .nut-button {
-      margin-top: 40px;
+      margin-top: 20px;
       width: 252px;
       height: 35px;
     }

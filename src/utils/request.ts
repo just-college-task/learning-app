@@ -27,15 +27,15 @@ const interceptor = function (chain: any) {
 Taro.addInterceptor(interceptor)
 
 //request
-const request = async (method, url, params) => {
+const request = async (method, url, data) => {
 
     const option = {
         method,
         isShowLoad: false,
         url: apiConfig.baseUrl + url,
-        data: params,
+        data: data,
         success(res: response) {
-            if (res.statusCode == 500) {
+            if (res.statusCode !== 200) {
                 Taro.showToast({
                     title: res.data?.message,
                     icon: "error",
@@ -52,16 +52,16 @@ const request = async (method, url, params) => {
 }
 
 export default {
-    get: (url, config) => {
-        return request('GET', url, config);
+    get: (url, data) => {
+        return request('GET', url, data);
     },
-    post: (url, config) => {
-        return request('POST', url, config);
+    post: (url, data) => {
+        return request('POST', url, data);
     },
-    put: (url, config) => {
-        return request('PUT', url, config);
+    put: (url, data) => {
+        return request('PUT', url, data);
     },
-    delete: (url, config) => {
-        return request('DELETE', url, config);
+    delete: (url, data) => {
+        return request('DELETE', url, data);
     },
 }

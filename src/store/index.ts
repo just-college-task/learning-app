@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { tabs } from '@/definitions'
+import * as userApi from '@/api/user'
+import Taro from '@tarojs/taro'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
@@ -37,10 +39,25 @@ export const useUserStore = defineStore('user', () => {
     isLogin.value = value
   }
 
+  function wechatLogin() {
+    Taro.login({
+      success(result) {
+        // console.info('wx.login result', result)
+        const { code } = result
+        userApi.wechatLogin({ code }).then(async res => {
+          console.info('server wechatLogin result', res)
+          await Taro.setStorage({ key: 'TOKEN', data: res.data.data })
+          setIsLogin(true)
+        })
+      }
+    })
+  }
+
   return {
     username,
     isLogin,
     setUsername,
-    setIsLogin
+    setIsLogin,
+    wechatLogin
   }
 })
