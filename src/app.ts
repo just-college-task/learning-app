@@ -1,10 +1,8 @@
 import { createApp } from 'vue'
-
 import { createPinia } from 'pinia'
-
+import { useNutUI } from './nutui'
 import 'uno.css'
 import './app.scss'
-import { useNutUI } from './nutui'
 
 const App = createApp({
   onShow(options) {}
@@ -12,7 +10,6 @@ const App = createApp({
 })
 
 App.use(createPinia())
-
 useNutUI(App)
 
 export default App
