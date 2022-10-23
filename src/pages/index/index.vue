@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { View } from '@tarojs/components'
 import MyCoursesCard from '@/components/card/MyCoursesCard.vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
 // import Taro, { useReady } from '@tarojs/taro'
@@ -8,7 +7,7 @@ import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
 const page = ref(2)
 
 // useReady(() => {
-//   Taro.navigateTo({ url: `/pages/course-content/index` })
+//   Taro.navigateTo({ url: `/pages/section-content/index` })
 // })
 </script>
 

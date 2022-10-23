@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import Taro from '@tarojs/taro'
+
+function handleJoinClicked() {
+  Taro.navigateTo({ url: '/pages/course-content/index' })
+}
+</script>
+
 <template>
   <view class="h-100vh flex flex-col">
     <view class="flex-1 overflow-scroll">
@@ -27,7 +35,7 @@
       </nut-tabs>
     </view>
     <view class="w-full px-4 py-2 box-border bg-white border-t-2 border-gray-200">
-      <nut-button class="w-full" type="primary">立即参加</nut-button>
+      <nut-button class="w-full" type="primary" @click="handleJoinClicked">立即参加</nut-button>
     </view>
   </view>
 </template>

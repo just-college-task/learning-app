@@ -1,5 +1,13 @@
+<script setup lang="ts">
+import Taro from '@tarojs/taro'
+
+function handleSectionClicked() {
+  Taro.navigateTo({ url: '/pages/section-content/index' })
+}
+</script>
+
 <template>
-  <view class="flex items-center">
+  <view class="flex items-center" @click="handleSectionClicked">
     <view class="grow flex gap-1 items-center">
       <view>
         <nut-tag plain type="primary">视频</nut-tag>
