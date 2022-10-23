@@ -56,5 +56,11 @@ export default defineConfig({
         'line-height': '48rpx'
       }
     ]
-  ]
+  ],
+  theme: {
+    colors: {
+      primary: '#2C68FF',
+      background: '#f5f5f5'
+    }
+  }
 })

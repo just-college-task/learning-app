@@ -10,7 +10,10 @@ import {
   Avatar,
   Progress,
   Tabs,
-  TabPane
+  TabPane,
+  Divider,
+  Tag,
+  Sticky
 } from '@nutui/nutui-taro'
 import { createPinia } from 'pinia'
 
@@ -25,7 +28,10 @@ const nutuiComponents = [
   Avatar,
   Progress,
   Tabs,
-  TabPane
+  TabPane,
+  Divider,
+  Tag,
+  Sticky
 ]
 
 import 'uno.css'
