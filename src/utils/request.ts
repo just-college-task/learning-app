@@ -40,7 +40,8 @@ const request = async (method, url, data) => {
                     title: res.data?.message,
                     icon: "error",
                     duration: 3000
-                })              
+                })
+                res.errMsg = res.data?.message              
             }
         },
         error(e) {
