@@ -35,7 +35,7 @@ const request = async (method, url, data) => {
         url: apiConfig.baseUrl + url,
         data: data,
         success(res: response) {
-            if (res.statusCode == 500) {
+            if (res.statusCode !== 200) {
                 Taro.showToast({
                     title: res.data?.message,
                     icon: "error",

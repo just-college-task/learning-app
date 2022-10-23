@@ -2,15 +2,26 @@
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
+const nickname = ref('请登入/注册')
 
 function handleClick() {
   if (!isLoginRef.value) {
-    Taro.navigateTo({
-      url: '/pages/my/login'
+    // Taro.navigateTo({
+    //   url: '/pages/my/login'
+    // })
+    userStore.wechatLogin()
+    Taro.getUserProfile({
+      success: res => {
+        //test
+        console.log(res)
+        nickname.value = res.userInfo.nickName
+      },
+      desc: '用于完善会员资料',
+      lang: 'zh_CN'
     })
   }
 }
@@ -22,7 +33,7 @@ function handleClick() {
       <view class="back-curves"> </view>
       <view class="userCard" @click="handleClick">
         <nut-avatar size="75" icon="image"> </nut-avatar>
-        <text>请登入/注册</text>
+        <text>{{ nickname }}</text>
         <nut-icon v-if="isLoginRef" name="right" size="18px" class="ml-15"></nut-icon>
       </view>
     </view>

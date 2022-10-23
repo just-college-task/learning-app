@@ -42,7 +42,7 @@ export const useUserStore = defineStore('user', () => {
   function wechatLogin() {
     Taro.login({
       success(result) {
-        console.info('wx.login result', result)
+        // console.info('wx.login result', result)
         const { code } = result
         userApi.wechatLogin({ code }).then(async res => {
           console.info('server wechatLogin result', res)

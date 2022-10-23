@@ -28,6 +28,14 @@ function testAPI() {
 
 function wechatLogin() {
   userStore.wechatLogin()
+  Taro.getUserProfile({
+    success: res => {
+      //test
+      console.log(res)
+    },
+    desc: '用于完善会员资料',
+    lang: 'zh_CN'
+  })
 }
 </script>
 
