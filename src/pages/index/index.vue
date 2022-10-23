@@ -3,8 +3,13 @@ import { ref } from 'vue'
 import { View } from '@tarojs/components'
 import MyCoursesCard from '@/components/card/MyCoursesCard.vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
+// import Taro, { useReady } from '@tarojs/taro'
 
 const page = ref(2)
+
+// useReady(() => {
+//   Taro.navigateTo({ url: `/pages/course-content/index` })
+// })
 </script>
 
 <template>

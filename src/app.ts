@@ -1,35 +1,10 @@
 import { createApp } from 'vue'
-import {
-  Button,
-  Toast,
-  Tabbar,
-  TabbarItem,
-  Icon,
-  Swiper,
-  SwiperItem,
-  Avatar,
-  Progress,
-  Tabs,
-  TabPane
-} from '@nutui/nutui-taro'
-import { createPinia } from 'pinia'
 
-const nutuiComponents = [
-  Button,
-  Toast,
-  Tabbar,
-  TabbarItem,
-  Icon,
-  Swiper,
-  SwiperItem,
-  Avatar,
-  Progress,
-  Tabs,
-  TabPane
-]
+import { createPinia } from 'pinia'
 
 import 'uno.css'
 import './app.scss'
+import { useNutUI } from './nutui'
 
 const App = createApp({
   onShow(options) {}
@@ -38,6 +13,6 @@ const App = createApp({
 
 App.use(createPinia())
 
-nutuiComponents.forEach(comp => App.use(comp))
+useNutUI(App)
 
 export default App
