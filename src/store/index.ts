@@ -28,7 +28,8 @@ export const useTabStore = defineStore('tab', () => {
 
 //userStore
 export const useUserStore = defineStore('user', () => {
-  const username = ref('')
+  const username = ref('请登入/注册')
+  const avatarUrl = ref('')
   const isLogin = ref(false)
 
   function setUsername(newUsername: string) {
@@ -39,25 +40,16 @@ export const useUserStore = defineStore('user', () => {
     isLogin.value = value
   }
 
-  function wechatLogin() {
-    Taro.login({
-      success(result) {
-        // console.info('wx.login result', result)
-        const { code } = result
-        userApi.wechatLogin({ code }).then(async res => {
-          console.info('server wechatLogin result', res)
-          await Taro.setStorage({ key: 'TOKEN', data: res.data.data })
-          setIsLogin(true)
-        })
-      }
-    })
+  function setAvatarUrl(url: string) {
+    avatarUrl.value = url
   }
 
   return {
     username,
     isLogin,
+    avatarUrl,
     setUsername,
     setIsLogin,
-    wechatLogin
+    setAvatarUrl
   }
 })

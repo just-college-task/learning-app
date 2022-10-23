@@ -4,6 +4,7 @@ export type response = {
     [key: string]: any
   }
   errMsg: string
+  error: boolean
   data: {
     [key: string]: any
   }
