@@ -25,6 +25,10 @@ function testAPI() {
   }
   register(data)
 }
+
+function wechatLogin() {
+  userStore.wechatLogin()
+}
 </script>
 
 <template>
@@ -38,8 +42,9 @@ function testAPI() {
         <text class="text-gray-400">忘记密码</text>
         <view @click="navigateToRegister">快速注册</view>
       </view>
-      <nut-button type="primary" @click="setLogin">登入</nut-button>
+      <nut-button type="primary" @click="setLogin">登录</nut-button>
       <nut-button type="primary" @click="testAPI">注册</nut-button>
+      <nut-button type="primary" @click="wechatLogin">微信登录</nut-button>
     </view>
   </view>
 </template>
@@ -87,7 +92,7 @@ function testAPI() {
     }
 
     .nut-button {
-      margin-top: 40px;
+      margin-top: 20px;
       width: 252px;
       height: 35px;
     }
