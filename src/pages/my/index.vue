@@ -1,9 +1,9 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <script setup lang="ts">
-import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
 import { wechatLogin } from '@/utils/wechat'
 import { computed } from 'vue'
+import UserCard from '@/components/user/userCard.vue'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
@@ -21,11 +21,12 @@ function handleClick() {
   <view class="person page-wrapper flex flex-col items-center">
     <view class="header flex justify-center w-full">
       <view class="back-curves"> </view>
-      <view class="userCard" @click="handleClick">
-        <nut-avatar size="75" icon="image" :url="avatarRef"> </nut-avatar>
-        <text>{{ nickname }}</text>
-        <nut-icon v-if="avatarRef.length > 0" name="right" size="18px" class="ml-15"></nut-icon>
-      </view>
+      <user-card
+        :nickname="nickname"
+        :avatar="avatarRef"
+        :isLogin="isLoginRef"
+        @click="handleClick"
+      />
     </view>
     <view class="body flex flex-col w-full mt-45px h-50vh">
       <view class="flex w-full h-90px items-center justify-between">
@@ -60,32 +61,6 @@ function handleClick() {
       position: absolute;
       border-radius: 10% 10% 50% 50% / 0% 0% 35% 35%;
       background: #2c68ff;
-    }
-
-    .userCard {
-      display: flex;
-      width: 600px;
-      height: 208px;
-      align-items: center;
-      z-index: 1;
-      margin: 80px 0 0 0;
-
-      background: #ffffff;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 8px;
-      font-weight: bold;
-
-      .nut-avatar {
-        margin: 0 30px 0 13px;
-      }
-
-      text {
-        width: 194px;
-        height: 36px;
-        font-weight: 700;
-        font-size: 36px;
-        line-height: 36px;
-      }
     }
   }
 

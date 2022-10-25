@@ -10208,7 +10208,7 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-query-string@^7.1.1:
+query-string@^7.0.0, query-string@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-7.1.1.tgz#754620669db978625a90f635f12617c271a088e1"
   integrity sha512-MplouLRDHBZSG9z7fpuAAcI7aAYjDLhtsiVZsevsfaHWDS2IDdORKbSd1kWUA+V4zyva/HZoSfpwnYMMQDhb0w==
@@ -11776,6 +11776,13 @@ taro-plugin-pinia@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/taro-plugin-pinia/-/taro-plugin-pinia-1.0.0.tgz#7dee620cc84303a4b4c2df50e649bae72c3b6ac0"
   integrity sha512-Ip2LTRh7NGsFyEzkZWvU115xDqV3D8cRRbqqw0JKTvzHFBzpwycmrUVQQxV61AMg0r2RJm3mcEbQ997j7xNjtg==
+
+tarojs-router-next@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/tarojs-router-next/-/tarojs-router-next-3.1.1.tgz#f6266941fb01cb4f5881d2874addb8c20d188162"
+  integrity sha512-Bij/tpkf3DcUrlT6COWyQlQwCkWXr6gGlY16/J22wxkdYgDOj4scYiZ3Q+HIJ5kdIMSVQJ/p8VvY/dc4nUClTw==
+  dependencies:
+    query-string "^7.0.0"
 
 term-size@^1.2.0:
   version "1.2.0"
