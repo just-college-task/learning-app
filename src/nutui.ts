@@ -13,6 +13,8 @@ import {
   TabPane,
   Divider,
   Tag,
+  Radio,
+  RadioGroup,
   Sticky
 } from '@nutui/nutui-taro'
 
@@ -30,6 +32,8 @@ const nutuiComponents = [
   TabPane,
   Divider,
   Tag,
+  Radio,
+  RadioGroup,
   Sticky
 ]
 

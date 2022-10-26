@@ -8,6 +8,7 @@ export default defineAppConfig({
     'pages/my/login',
     'pages/course-detail/index',
     'pages/course-content/index',
+    'pages/course-content/views/exams/index',
     'pages/section-content/index'
   ],
   window: {
