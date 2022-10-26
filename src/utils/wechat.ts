@@ -13,6 +13,10 @@ export function wechatLogin() {
           if (!token) return
           console.info('server wechatLogin result', token)
           await Taro.setStorage({ key: 'TOKEN', data: token })
+
+          const userInfo = await userApi.info()
+          console.info('userInfo', userInfo)
+
           userStore.setIsLogin(true)
         })
       }

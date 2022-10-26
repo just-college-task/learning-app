@@ -8,6 +8,10 @@ export function wechatLogin(data: { code: string }) {
   return request.post<string>('/auth/wechat_signin', data)
 }
 
+export function info() {
+  return request.get('/auth/info')
+}
+
 export function register(data) {
   return request.post('/auth/signup', data)
 }
