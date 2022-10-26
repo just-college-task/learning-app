@@ -16,7 +16,7 @@ const config = {
   alias: {
     '@': path.resolve(__dirname, '..', 'src')
   },
-  plugins: ['@tarojs/plugin-html', 'taro-plugin-pinia'],
+  plugins: ['@tarojs/plugin-html', 'taro-plugin-pinia', 'tarojs-router-next-plugin'],
   defineConstants: {},
   copy: {
     patterns: [],
