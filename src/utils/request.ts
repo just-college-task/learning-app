@@ -29,7 +29,7 @@ Taro.addInterceptor(interceptor)
 const request = async <T>(
   method: RequestParams['method'],
   url: RequestParams['url'],
-  data: T
+  data: T | undefined
 ): Promise<Maybe<T>> => {
   const option: RequestParams<Response<T>> = {
     method,
@@ -55,7 +55,7 @@ const request = async <T>(
 }
 
 export default {
-  get: <T = any>(url: string, data) => {
+  get: <T = any>(url: string, data?) => {
     return request<T>('GET', url, data)
   },
   post: <T = any>(url: string, data) => {
