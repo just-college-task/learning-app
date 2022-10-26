@@ -8,8 +8,4 @@ const defaultPageParams: PageParams = {
 }
 
 export const usePopularCoursesQuery = (params: PageParams = defaultPageParams) =>
-  useQuery(['POPULAR_COURSES', params.page, params.size], () => fetchPopularCourses(params), {
-    onSuccess: data => {
-      console.log('fronz ~ useQuery ~ data', data)
-    }
-  })
+  useQuery(['POPULAR_COURSES', params.page, params.size], () => fetchPopularCourses(params))

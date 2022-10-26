@@ -4,6 +4,7 @@ import { useUserStore } from '@/store'
 import { wechatLogin } from '@/utils/wechat'
 import { computed } from 'vue'
 import UserCard from '@/components/user/userCard.vue'
+import Router from 'tarojs-router-next'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
@@ -14,6 +15,10 @@ function handleClick() {
   if (!isLoginRef.value) {
     wechatLogin()
   }
+}
+
+function handleItemClicked() {
+  Router.navigate({ url: '/pages/my-courses/index' })
 }
 </script>
 
@@ -29,7 +34,7 @@ function handleClick() {
       />
     </view>
     <view class="body flex flex-col w-full mt-45px h-50vh">
-      <view class="flex w-full h-90px items-center justify-between">
+      <view @click="handleItemClicked" class="flex w-full h-90px items-center justify-between">
         <text class="pl-10">我的课程</text>
         <view class="arr pr-10"></view>
       </view>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import Taro from '@tarojs/taro'
 import { Course } from 'types/api'
 import { toRefs } from 'vue'
+import { Router } from 'tarojs-router-next'
+
 function handleDetailClicked() {
-  Taro.navigateTo({ url: `/pages/course-detail/index` })
+  Router.navigate({ url: `/pages/course-detail/index` })
 }
 
 const DEFAULT_COVER_SRC = `https://img-ph-mirror.nosdn.127.net/tYhzuDVilzlDOo2bEyH_Qg==/6608226511143817333.jpg?imageView&quality=100&thumbnail=230y130`

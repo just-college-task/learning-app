@@ -4,6 +4,7 @@ import { useNutUI } from './nutui'
 import { VueQueryPlugin, useQueryProvider } from 'vue-query'
 import 'uno.css'
 import './app.scss'
+import './route'
 
 const App = createApp({
   onShow(options) {}

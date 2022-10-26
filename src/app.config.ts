@@ -5,7 +5,7 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/courses/index',
     'pages/my/index',
-    'pages/my/courses',
+    'pages/my-courses/index',
     'pages/login/index',
     'pages/course-detail/index',
     'pages/course-content/index',

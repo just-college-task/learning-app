@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import MyCoursesCard from '@/components/card/MyCoursesCard.vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
 // import Taro, { useReady } from '@tarojs/taro'
 
@@ -30,7 +29,6 @@ const page = ref(2)
       </nut-swiper-item>
     </nut-swiper>
     <view class="px-4">
-      <!-- <MyCoursesCard /> -->
       <PopularCoursesCard />
     </view>
   </view>
