@@ -5,7 +5,7 @@ const radioVal = ref(0)
 </script>
 
 <template>
-  <view class="w-full h-100vh flex flex-col">
+  <view class="question w-full h-100vh flex flex-col">
     <view class="flex justify-center p-3 border-b-gray-2 border-b-1">
       <view class="font-semibold text-lg">题目</view>
     </view>
@@ -38,12 +38,14 @@ const radioVal = ref(0)
 </template>
 
 <style lang="scss">
-.nut-radio__label {
-  font-size: 17px;
-  line-height: 40px;
-  color: rgba(0, 0, 0, 0.65);
-}
-.nut-button {
-  width: 48%;
+.question {
+  .nut-radio__label {
+    font-size: 17px;
+    line-height: 40px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  .nut-button {
+    width: 48%;
+  }
 }
 </style>
