@@ -9,12 +9,11 @@ export function wechatLogin() {
     Taro.login({
       success(result) {
         const { code } = result
-        userApi.wechatLogin({ code }).then(async res => {
-          console.info('server wechatLogin result', res)
-          if (res.errMsg === 'request:ok') {
-            await Taro.setStorage({ key: 'TOKEN', data: res.data.data })
-            userStore.setIsLogin(true)
-          }
+        userApi.wechatLogin({ code }).then(async token => {
+          if (!token) return
+          console.info('server wechatLogin result', token)
+          await Taro.setStorage({ key: 'TOKEN', data: token })
+          userStore.setIsLogin(true)
         })
       }
     })
