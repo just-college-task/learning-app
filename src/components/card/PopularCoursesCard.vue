@@ -1,27 +1,29 @@
 <script setup lang="ts">
 import Card from './Card.vue'
 import CourseItem from '../CourseItem.vue'
+import CourseItemSkeleton from '../CourseItemSkeleton.vue'
 import { usePopularCoursesQuery } from '@/composables/courses'
 
-usePopularCoursesQuery(
-  {
-    page: 1,
-    size: 4
-  },
-  {
-    onSuccess: res => {
-      console.log('fronz ~ res', res)
-    }
-  }
-)
+const { data, isLoading } = usePopularCoursesQuery({
+  page: 1,
+  size: 4
+})
+
+data.value
 </script>
 
 <template>
   <Card title="热门课程" label="更多">
-    <CourseItem>
-      <view class="flex justify-end">
-        <view class="text-xs text-gray-400"> 111 人参加 </view>
-      </view>
-    </CourseItem>
+    <view v-if="isLoading || !data?.dataList">
+      <CourseItemSkeleton />
+      <CourseItemSkeleton />
+    </view>
+    <view v-else>
+      <CourseItem v-for="course in data.dataList" :course="course">
+        <view class="flex justify-end">
+          <view class="text-xs text-gray-400"> {{ course.members }} 人参加 </view>
+        </view>
+      </CourseItem>
+    </view>
   </Card>
 </template>

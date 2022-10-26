@@ -30,7 +30,7 @@ const request = async <T>(
   method: RequestParams['method'],
   url: RequestParams['url'],
   data: T | undefined
-): Promise<Maybe<T>> => {
+): Promise<T> => {
   const option: RequestParams<Response<T>> = {
     method,
     isShowLoad: false,

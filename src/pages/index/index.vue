@@ -29,8 +29,8 @@ const page = ref(2)
         <img src="https://storage.360buyimg.com/jdc-article/fristfabu.jpg" alt="" />
       </nut-swiper-item>
     </nut-swiper>
-    <view class="main">
-      <MyCoursesCard />
+    <view class="px-4">
+      <!-- <MyCoursesCard /> -->
       <PopularCoursesCard />
     </view>
   </view>
