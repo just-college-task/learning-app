@@ -52,5 +52,25 @@ function getIsActive(idx: number) {
         </view>
       </view>
     </view>
+    <view class="px-4 py-3 box-border">
+      <view class="w-full bg-white rounded-lg px-4 py-3 box-border">
+        <view class="mx-2 text-normal text-gray-9">章节笔记</view>
+        <view class="flex border-b-gray-2 border-b-1 mx-1 pt-3 pb-4">
+          <view class="px-5 py-2 rounded-full mx-1 text-primary text-sm bg-blue-2">我的</view>
+          <view class="px-5 py-2 rounded-full mx-1 text-gray-5 text-sm bg-background"
+            >其他学员</view
+          >
+        </view>
+        <view class="w-full">
+          <view v-for="i in 3" class="py-3 w-638 h-100 border-b-gray-2 border-b-1">
+            <view class="text-lg px-1">这是一篇笔记</view>
+            <view class="flex justify-between px-1 text-gray-4 text-sm">
+              <view>Fronz</view>
+              <view>2022-10-24</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
