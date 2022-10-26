@@ -1,4 +1,5 @@
 import { TabBar } from '@tarojs/taro'
+import { PageParams } from 'types/api'
 
 interface Tab {
   text: string

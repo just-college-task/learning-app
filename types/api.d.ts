@@ -1,12 +1,10 @@
-export type response = {
-  statusCode: number
-  header: {
-    [key: string]: any
-  }
-  errMsg: string
-  error: boolean
-  data: {
-    [key: string]: any
-  }
-  cookies: []
+export type Response<T = any> = {
+  data: Maybe<T>
+  message: string
+  status: number
+}
+
+export interface PageParams {
+  page: number
+  size: number
 }

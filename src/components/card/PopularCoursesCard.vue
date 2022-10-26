@@ -1,6 +1,19 @@
 <script setup lang="ts">
 import Card from './Card.vue'
 import CourseItem from '../CourseItem.vue'
+import { usePopularCoursesQuery } from '@/composables/courses'
+
+usePopularCoursesQuery(
+  {
+    page: 1,
+    size: 4
+  },
+  {
+    onSuccess: res => {
+      console.log('fronz ~ res', res)
+    }
+  }
+)
 </script>
 
 <template>
