@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { useNutUI } from './nutui'
+import { VueQueryPlugin, useQueryProvider } from 'vue-query'
 import 'uno.css'
 import './app.scss'
 
@@ -10,6 +11,9 @@ const App = createApp({
 })
 
 App.use(createPinia())
+App.use(VueQueryPlugin)
 useNutUI(App)
+
+useQueryProvider()
 
 export default App
