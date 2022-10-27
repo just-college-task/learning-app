@@ -10,7 +10,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/course-content/views/exams/index",
+          "pathName": "pages/course-content/views/exams-result/index",
           "query": "",
           "launchMode": "default",
           "scene": null
