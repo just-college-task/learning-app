@@ -26,7 +26,7 @@ function testAPI() {
 }
 
 function wechatLogin() {
-  userStore.wechatLogin()
+  // userStore.wechatLogin()
   Taro.getUserProfile({
     success: res => {
       //test
@@ -67,7 +67,6 @@ function wechatLogin() {
     width: 423px;
     height: 450px;
     margin-top: 70px;
-    background-image: url('../../../public/static/img/bg.png');
   }
 
   .lg-title {

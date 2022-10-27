@@ -5,15 +5,15 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/courses/index',
     'pages/my/index',
-    'pages/my-detail/myCourses',
-    'pages/my-detail/managerCourses',
-    'pages/my-detail/certificate',
-    'pages/my-detail/About',
+    'pages/login/index',
+    'pages/my-courses/index',
+    'pages/my-manage-courses/index',
+    'pages/my-certificates/index',
     'pages/course-detail/index',
     'pages/course-content/index',
     'pages/course-content/views/exams/index',
-    'pages/section-content/index',
-    'pages/course-content/views/exams-result/index'
+    'pages/course-content/views/exams-result/index',
+    'pages/section-content/index'
   ],
   window: {
     backgroundTextStyle: 'light',

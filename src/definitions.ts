@@ -1,5 +1,6 @@
 import { TabBar } from '@tarojs/taro'
-import { PageParams } from 'types/api'
+
+export const STORAGE_TOKEN_KEY = 'STORAGE_TOKEN'
 
 interface Tab {
   text: string
