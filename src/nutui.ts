@@ -16,7 +16,9 @@ import {
   Radio,
   RadioGroup,
   Sticky,
-  Skeleton
+  Skeleton,
+  Grid,
+  GridItem
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
@@ -36,7 +38,9 @@ const nutuiComponents = [
   Radio,
   RadioGroup,
   Sticky,
-  Skeleton
+  Skeleton,
+  Grid,
+  GridItem
 ]
 
 export function useNutUI(app: App) {
