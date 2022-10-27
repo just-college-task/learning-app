@@ -14,11 +14,11 @@ data.value
 
 <template>
   <Card title="热门课程" label="更多">
-    <view v-if="isLoading || !data?.dataList">
+    <view class="flex flex-col gap-4" v-if="isLoading || !data?.dataList">
       <CourseItemSkeleton />
       <CourseItemSkeleton />
     </view>
-    <view v-else>
+    <view v-else class="flex flex-col gap-4">
       <CourseItem v-for="course in data.dataList" :course="course">
         <view class="flex justify-end">
           <view class="text-xs text-gray-400"> {{ course.members }} 人参加 </view>

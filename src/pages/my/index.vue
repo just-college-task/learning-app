@@ -11,7 +11,7 @@ const avatar = computed(() => userStore.avatar)
 </script>
 
 <template>
-  <view class="person page-wrapper flex flex-col items-center">
+  <view class="person page-wrapper tab-page-wrapper flex flex-col items-center">
     <view class="header flex justify-center w-full">
       <view class="back-curves w-full h-30vh absolute"> </view>
       <user-card :nickname="nickname" :avatar="avatar" :isLogin="isLoginRef" userType="普通用户" />

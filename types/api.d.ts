@@ -59,3 +59,10 @@ interface Comment {
   content: string
   time: null
 }
+
+interface Banner {
+  bannerId: number
+  picLink: string
+  courseId: number
+  time: string
+}

@@ -1,31 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
-// import Taro, { useReady } from '@tarojs/taro'
+import { useBannersQuery } from '@/composables/banner'
 
-const page = ref(2)
-
-// useReady(() => {
-//   Taro.navigateTo({ url: `/pages/section-content/index` })
-// })
+const pageNum = ref(0)
+const { data: banners } = useBannersQuery()
 </script>
 
 <template>
-  <view class="page-wrapper index-page">
+  <view class="page-wrapper index-page tab-page-wrapper">
     <nut-swiper
-      :init-page="page"
+      :init-page="pageNum"
       :pagination-visible="true"
       pagination-color="#426543"
       auto-play="3000"
     >
-      <nut-swiper-item>
-        <img src="https://storage.360buyimg.com/jdc-article/NutUItaro34.jpg" alt="" />
-      </nut-swiper-item>
-      <nut-swiper-item>
-        <img src="https://storage.360buyimg.com/jdc-article/welcomenutui.jpg" alt="" />
-      </nut-swiper-item>
-      <nut-swiper-item>
-        <img src="https://storage.360buyimg.com/jdc-article/fristfabu.jpg" alt="" />
+      <nut-swiper-item v-for="banner in banners">
+        <img :src="banner.picLink" alt="" />
       </nut-swiper-item>
     </nut-swiper>
     <view class="px-4">
