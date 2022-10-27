@@ -5,10 +5,12 @@ const props = defineProps<{
   userType: string
   isLogin: boolean
 }>()
+
+const DEFAULT_URL = 'https://www.w3schools.com/howto/img_avatar.png'
 </script>
 <template>
   <view class="userCard px-48px rounded-24px">
-    <nut-avatar size="75" icon="image" :url="props.avatar"> </nut-avatar>
+    <nut-avatar size="75" icon="image" :url="props.avatar ? props.avatar : DEFAULT_URL" />
     <nut-button type="primary" v-if="!props.isLogin">登录</nut-button>
     <view class="flex flex-col">
       <view v-if="props.isLogin" class="text-lg text-center font-400">{{ props.nickname }}</view>

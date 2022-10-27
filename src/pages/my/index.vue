@@ -9,7 +9,7 @@ import UserOperate from '@/components/user/userOperate.vue'
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
 const nickname = computed(() => userStore.nickname)
-const avatarRef = computed(() => userStore.avatar)
+const avatar = computed(() => userStore.avatar)
 
 function handleClick() {
   if (!isLoginRef.value) {
@@ -27,7 +27,7 @@ function handleClick() {
       </view>
       <user-card
         :nickname="nickname"
-        avatar="https://www.w3schools.com/howto/img_avatar.png"
+        :avatar="avatar"
         :isLogin="isLoginRef"
         userType="普通用户"
         @click="handleClick"
