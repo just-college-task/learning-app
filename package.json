@@ -30,6 +30,7 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
+    "prepare": "husky install",
     "tsc": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint --ext .vue --ext .js --ext .ts src/"
   },
@@ -85,6 +86,7 @@
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.6.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "style-loader": "3.3.1",
     "stylelint": "14.14.0",
     "tarojs-router-next-plugin": "^3.1.1",
@@ -94,5 +96,9 @@
     "vue-loader": "^17.0.0",
     "vue-tsc": "^1.0.8",
     "webpack": "5.74.0"
+  },
+  "lint-staged": {
+    "*.(ts|js|json)": "eslint",
+    "*.vue": "eslint"
   }
 }
