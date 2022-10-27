@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'

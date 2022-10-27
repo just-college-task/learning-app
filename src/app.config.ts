@@ -13,7 +13,8 @@ export default defineAppConfig({
     'pages/course-detail/index',
     'pages/course-content/index',
     'pages/course-content/views/exams/index',
-    'pages/section-content/index'
+    'pages/section-content/index',
+    'pages/course-content/views/exams-result/index'
   ],
   window: {
     backgroundTextStyle: 'light',
