@@ -9,7 +9,6 @@ export default defineAppConfig({
     'pages/my/views/managerCourses',
     'pages/my/views/certificate',
     'pages/my/views/About',
-    'pages/my/login',
     'pages/course-detail/index',
     'pages/course-content/index',
     'pages/course-content/views/exams/index',
