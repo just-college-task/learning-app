@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store'
 import { computed } from 'vue'
-import UserCard from '@/components/user/UserCard.vue'
-import UserOperate from '@/components/user/UserOperate.vue'
+import UserCard from './views/UserCard.vue'
+import UserOperate from './views/UserOperate.vue'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
