@@ -26,10 +26,7 @@ function handleItemClicked() {
 <template>
   <view class="person page-wrapper flex flex-col items-center">
     <view class="header flex justify-center w-full">
-      <view class="back-curves w-full h-300 absolute">
-        <view class="bg-2"></view>
-        <view class="bg-1"></view>
-      </view>
+      <view class="back-curves w-full h-30vh absolute"> </view>
       <user-card
         :nickname="nickname"
         :avatar="avatar"
@@ -56,25 +53,10 @@ function handleItemClicked() {
   .header {
     .back-curves {
       position: absolute;
-
-      .bg-1 {
-        width: 100%;
-        height: 100%;
-        transform: translate(-30%, -70%) scale(2);
-        position: absolute;
-        background: center url('../../../public/static/img/user-bg-part.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
-
-      .bg-2 {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        transform: scale(1.05);
-        background: bottom url('../../../public/static/img/user-bg.png');
-        background-repeat: no-repeat;
-      }
+      transform: scale(1.1);
+      background: center top url('../../../public/static/img/userBg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
   .arr {
@@ -82,7 +64,7 @@ function handleItemClicked() {
     height: 64px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(../../../public/static/img/right-arrow.png);
+    background-image: url('../../../public/static/img/right-arrow.png');
   }
 }
 </style>
