@@ -2,13 +2,13 @@
 import Taro from '@tarojs/taro'
 
 function toMyCourses() {
-  Taro.navigateTo({ url: '/pages/my/views/myCourses' })
+  Taro.navigateTo({ url: '/pages/my-detail/myCourses' })
 }
 function toManagerCourses() {
-  Taro.navigateTo({ url: '/pages/my/views/managerCourses' })
+  Taro.navigateTo({ url: '/pages/my-detail/managerCourses' })
 }
 function toCertificates() {
-  Taro.navigateTo({ url: '/pages/my/views/certificate' })
+  Taro.navigateTo({ url: '/pages/my-detail/certificate' })
 }
 </script>
 

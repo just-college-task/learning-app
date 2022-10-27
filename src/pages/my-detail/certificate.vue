@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import MyCoursesCard from '@/components/card/MyCoursesCard.vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
 </script>
 
 <template>
   <view class="page-wrapper w-full h-100vh">
-    <view class="">
-      <!-- <MyCoursesCard /> -->
+    <view class="mx-3 overflow-y-scroll">
       <PopularCoursesCard />
     </view>
   </view>
