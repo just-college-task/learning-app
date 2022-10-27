@@ -2,6 +2,7 @@
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
 import { register } from '@/api/user'
+import { wechatLogin } from '@/utils/wechat'
 
 Taro.setNavigationBarTitle({ title: '登入' })
 
@@ -23,18 +24,6 @@ function testAPI() {
     password: 'gaowanlu'
   }
   register(data)
-}
-
-function wechatLogin() {
-  // userStore.wechatLogin()
-  Taro.getUserProfile({
-    success: res => {
-      //test
-      console.log(res)
-    },
-    desc: '用于完善会员资料',
-    lang: 'zh_CN'
-  })
 }
 </script>
 
