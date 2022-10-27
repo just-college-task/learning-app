@@ -57,13 +57,12 @@ const getCollection = () => {
 export default {
   data() {
     return {
-      radioVal: '',
-      pageNow: 0,
-      collection: { id: 0, questionList: [] },
-      submit: [],
+      pageNow: 0, //此时页面编号，即collection下标
+      collection: { id: 0, questionList: [] }, //试题集
       radioShow: false, //题目是否展示
       nextButtonShow: true, //下一题按钮是否展示
-      submitButtonShow: false //提交是否展示
+      submitButtonShow: false, //提交是否展示
+      editable: true //是否可作答编辑
     }
   },
   methods: {
@@ -117,7 +116,7 @@ export default {
   <view class="question w-full h-100vh flex flex-col">
     <view class="flex justify-center p-3 border-b-gray-2 border-b-1">
       <view class="font-semibold text-lg"
-        >题目 {{ pageNow + 1 }}/{{ collection.questionList.length }}</view
+        >题目 {{ pageNow + 1 }}/{{ collection.questionList.length }} 剩余时间:50分钟</view
       >
     </view>
     <view v-if="radioShow" class="flex flex-col p-3">
@@ -131,6 +130,7 @@ export default {
       >
         <nut-radio
           v-for="(item, index) in collection.questionList[pageNow].radios"
+          :disabled="!editable"
           :key="item.index"
           class="h-100 border-b-gray-2 border-b-1"
           :label="`${index}`"
