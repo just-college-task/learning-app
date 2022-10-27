@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { tabs } from '@/definitions'
-import * as userApi from '@/api/user'
-import Taro from '@tarojs/taro'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
@@ -28,28 +26,18 @@ export const useTabStore = defineStore('tab', () => {
 
 //userStore
 export const useUserStore = defineStore('user', () => {
-  const username = ref('请登入/注册')
-  const avatarUrl = ref('')
+  const nickname = ref('匿名用户')
+  const avatar = ref('')
   const isLogin = ref(false)
-
-  function setUsername(newUsername: string) {
-    username.value = newUsername
-  }
 
   function setIsLogin(value: boolean) {
     isLogin.value = value
   }
 
-  function setAvatarUrl(url: string) {
-    avatarUrl.value = url
-  }
-
   return {
-    username,
+    nickname,
     isLogin,
-    avatarUrl,
-    setUsername,
-    setIsLogin,
-    setAvatarUrl
+    avatar,
+    setIsLogin
   }
 })

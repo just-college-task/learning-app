@@ -18,6 +18,7 @@ export function wechatLogin() {
           console.info('userInfo', userInfo)
 
           userStore.setIsLogin(true)
+          userStore.nickname = userInfo.nickname
         })
       }
     })

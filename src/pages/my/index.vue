@@ -4,11 +4,12 @@ import { useUserStore } from '@/store'
 import { wechatLogin } from '@/utils/wechat'
 import { computed } from 'vue'
 import UserCard from '@/components/user/userCard.vue'
+import UserOperate from '@/components/user/userOperate.vue'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
-const nickname = computed(() => userStore.username)
-const avatarRef = computed(() => userStore.avatarUrl)
+const nickname = computed(() => userStore.nickname)
+const avatarRef = computed(() => userStore.avatar)
 
 function handleClick() {
   if (!isLoginRef.value) {
@@ -20,33 +21,26 @@ function handleClick() {
 <template>
   <view class="person page-wrapper flex flex-col items-center">
     <view class="header flex justify-center w-full">
-      <view class="back-curves"> </view>
+      <view class="back-curves w-full h-300 absolute">
+        <view class="bg-2"></view>
+        <view class="bg-1"></view>
+      </view>
       <user-card
         :nickname="nickname"
-        :avatar="avatarRef"
+        avatar="https://www.w3schools.com/howto/img_avatar.png"
         :isLogin="isLoginRef"
+        userType="普通用户"
         @click="handleClick"
       />
     </view>
-    <view class="body flex flex-col w-full mt-45px h-50vh">
-      <view class="flex w-full h-90px items-center justify-between">
-        <text class="pl-10">我的课程</text>
-        <view class="arr pr-10"></view>
-      </view>
-      <view class="flex w-full h-90px items-center justify-between">
-        <text class="pl-10">我管理的课程</text>
-        <view class="arr pr-10"></view>
-      </view>
-      <view class="flex w-full h-90px items-center justify-between">
-        <text class="pl-10">个人证书</text>
-        <view class="arr pr-10"></view>
-      </view>
-    </view>
-    <view class="footer flex flex-col w-full items-center">
-      <view class="h-10 w-689px border-b-gray-4 border-b-3"></view>
-      <view class="flex w-full h-90px items-center justify-between">
-        <text class="pl-10">关于App</text>
-        <view class="arr pr-10"></view>
+    <user-operate />
+    <view class="footer flex flex-col w-580px bg-white px-5 mt-45px rounded-24px items-center">
+      <view class="flex w-full h-104px justify-center items-center">
+        <nut-icon name="tips" size="20" class="mr-32px"></nut-icon>
+        <view class="flex w-full h-full items-center justify-between">
+          <text>关于App</text>
+          <view class="arr"></view>
+        </view>
       </view>
     </view>
   </view>
@@ -56,27 +50,34 @@ function handleClick() {
 .person {
   .header {
     .back-curves {
-      width: 100%;
-      height: 245px;
       position: absolute;
-      border-radius: 10% 10% 50% 50% / 0% 0% 35% 35%;
-      background: #2c68ff;
+
+      .bg-1 {
+        width: 100%;
+        height: 100%;
+        transform: translate(-30%, -70%) scale(2);
+        position: absolute;
+        background: center url('../../../public/static/img/user-bg-part.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .bg-2 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: scale(1.05);
+        background: bottom url('../../../public/static/img/user-bg.png');
+        background-repeat: no-repeat;
+      }
     }
   }
-
   .arr {
     width: 64px;
     height: 64px;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../../public/static/img/right-arrow.png);
-  }
-  text {
-    font-family: 'Noto Sans SC';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 34px;
-    line-height: 36px;
   }
 }
 </style>

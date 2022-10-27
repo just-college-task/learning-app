@@ -22,6 +22,14 @@ export interface PageParams {
   size: number
 }
 
+export interface UserInfo {
+  avatar: string
+  nickname: string
+  phoneNumber: string
+  type: string
+  userId: number
+}
+
 export interface Course {
   courseId: number
   userid: number
