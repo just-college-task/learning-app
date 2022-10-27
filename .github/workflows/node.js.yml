@@ -18,15 +18,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn install --frozen-lockfile
-    - name: Webpack build cache
+        # cache: 'yarn'
+
+    - name: node_modules cache
+      id: node_modules-cache
       uses: actions/cache@v3
       with:
-        path: node_modules/.cache/webpack
-        key: ${{ runner.os }}-build-cache-${{ hashFiles('**/yarn.lock') }}
+        path: node_modules
+        key: ${{ runner.os }}-node_modules-${{ hashFiles('./yarn.lock') }}
+
+    - run: yarn install --frozen-lockfile
+      if: steps.node_modules-cache.outputs.cache-hit != 'true'
+
     - run: yarn build:weapp
