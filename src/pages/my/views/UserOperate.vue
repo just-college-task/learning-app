@@ -22,6 +22,11 @@ const menuItems: MenuItem[] = [
     title: '我的证书',
     iconName: 'success',
     action: () => Router.toMyCertificates()
+  },
+  {
+    title: '个人信息',
+    iconName: 'tips',
+    action: () => Router.toMyProfile()
   }
 ]
 </script>

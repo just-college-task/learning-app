@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store'
 import { computed } from 'vue'
-import { Router } from 'tarojs-router-next'
+import { wechatLogin } from '@/utils/wechat'
+// import { Router } from 'tarojs-router-next'
 
 const props = defineProps<{
   nickname: string
@@ -13,15 +14,17 @@ const props = defineProps<{
 const userStore = useUserStore()
 const isLogin = computed(() => userStore.isLogin)
 
+const HOST = process.env.API_HOST
 const DEFAULT_URL = 'https://www.w3schools.com/howto/img_avatar.png'
 
 function handleLoginClicked() {
-  Router.toLogin()
+  // Router.toLogin()
+  wechatLogin()
 }
 </script>
 <template>
   <view class="userCard px-48px rounded-24px">
-    <nut-avatar size="75" icon="image" :url="props.avatar ? props.avatar : DEFAULT_URL" />
+    <nut-avatar size="75" icon="image" :url="props.avatar ? HOST + props.avatar : DEFAULT_URL" />
     <nut-button v-if="!isLogin" type="primary" @click="handleLoginClicked">登录</nut-button>
     <view v-else class="flex flex-col">
       <view class="text-lg text-center font-400">{{ props.nickname }}</view>

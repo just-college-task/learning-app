@@ -19,7 +19,7 @@ const avatar = computed(() => userStore.avatar)
     <user-operate />
     <view class="footer flex flex-col w-580px bg-white px-5 mt-45px rounded-24px items-center">
       <view class="flex w-full h-104px justify-center items-center">
-        <nut-icon name="tips" size="20" class="mr-32px"></nut-icon>
+        <nut-icon name="ask" size="20" class="mr-32px"></nut-icon>
         <view class="flex w-full h-full items-center justify-between">
           <text>关于App</text>
           <view class="arr"></view>
