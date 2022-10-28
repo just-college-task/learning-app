@@ -66,3 +66,25 @@ interface Banner {
   courseId: number
   time: string
 }
+
+interface QuestionCollect {
+  collectId: number
+  userid: number
+  name: string
+  profile: string
+}
+
+interface QuestionOption {
+  answer: boolean
+  content: string
+  isAnswer: boolean
+  option: string
+}
+
+interface Question {
+  id: number
+  questionCollectId: number
+  content: string[]
+  options: QuestionOption[]
+  score: number
+}
