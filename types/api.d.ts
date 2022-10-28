@@ -88,3 +88,11 @@ interface Question {
   options: QuestionOption[]
   score: number
 }
+
+export interface Announcement {
+  announcementId: number
+  courseId: number
+  title: string
+  content: string
+  Time: any
+}

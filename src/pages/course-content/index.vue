@@ -3,7 +3,12 @@ import { ref } from 'vue'
 import NoticesTabContent from './views/NoticesTabContent.vue'
 import SectionsTabContent from './views/SectionsTabContent.vue'
 import ExamsTabContent from './views/ExamsTabContent.vue'
+import { useRouter } from '@tarojs/taro'
 const activeTabIndex = ref(0)
+
+const router = useRouter()
+const courseId = Number(router.params.id!)
+console.info('course-content', courseId)
 </script>
 
 <template>
