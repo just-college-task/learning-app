@@ -18,7 +18,9 @@ import {
   Sticky,
   Skeleton,
   Grid,
-  GridItem
+  GridItem,
+  Popup,
+  OverLay
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
@@ -40,7 +42,9 @@ const nutuiComponents = [
   Sticky,
   Skeleton,
   Grid,
-  GridItem
+  GridItem,
+  Popup,
+  OverLay
 ]
 
 export function useNutUI(app: App) {
