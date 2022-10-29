@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import PopularCoursesCard from '@/components/card/PopularCoursesCard.vue'
 import { useBannersQuery } from '@/composables/banner'
+import { getImgUrl } from '@/utils/helper'
 
 const pageNum = ref(0)
 const { data: banners } = useBannersQuery()
@@ -16,7 +17,7 @@ const { data: banners } = useBannersQuery()
       auto-play="3000"
     >
       <nut-swiper-item v-for="banner in banners">
-        <img :src="banner.picLink" alt="" />
+        <img :src="getImgUrl(banner.picLink)" alt="" />
       </nut-swiper-item>
     </nut-swiper>
     <view class="px-4">
