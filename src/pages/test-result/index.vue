@@ -1,49 +1,5 @@
 <script>
-const getData = () => {
-  return {
-    collectionId: 100,
-    score: 90,
-    list: [
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' },
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' },
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'error' },
-      { status: 'no' },
-      { status: 'yes' },
-      { status: 'yes' }
-    ]
-  }
-}
-
+import { getData } from './mock'
 export default {
   data() {
     return {
@@ -65,8 +21,9 @@ export default {
     }
   },
   mounted() {
-    this.list = getData().list
-    this.score = getData().score
+    const { list, score } = getData()
+    this.list = list
+    this.score = score
   },
   onLoad() {},
   onReady() {},
@@ -131,6 +88,7 @@ export default {
     </view>
   </view>
 </template>
+
 <style lang="scss">
 .exams-result {
   background-color: #f8f8f8;

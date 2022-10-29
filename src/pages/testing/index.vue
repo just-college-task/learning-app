@@ -1,67 +1,101 @@
 <script>
 //setup lang="ts"
-import { getQuestionList } from '@/api/question'
-
-class QuestionSubmit {
-  constructor(id, option) {
-    this.id = id
-    this.option = option
-  }
-}
+import { createSubmit, createSubmitItem, getData } from '@/pages/testing/mock'
+import Taro from '@tarojs/taro'
+import { getExamById } from '@/api/exam'
 
 export default {
   data() {
     return {
       editable: true, //是否可作答编辑
-      data: null,
+      exam: null,
       radioVal: '',
-      submit: [],
+      submit: null,
       state: {
         showBasic: false
-      }
+      },
+      last: false,
+      first: true,
+      currentPage: 0
     }
   },
   methods: {
-    nextPage() {
-      if (this.data.last === false) {
-        this.data.currentPage++
-        this.loadQuestionList(this.data.dataList[0].questionCollectId, this.data.currentPage)
-      }
+    nextPageHandler() {
+      this.loadQuestion(this.currentPage + 1)
+      this.loadRadioVal()
     },
-    beforePage() {
-      if (this.data.first === false) {
-        this.data.currentPage--
-        this.loadQuestionList(this.data.dataList[0].questionCollectId, this.data.currentPage)
-      }
+    beforePageHandler() {
+      this.loadQuestion(this.currentPage - 1)
+      this.loadRadioVal()
     },
-    radioChange(value) {
-      //寻找是否有目标提交
-      const currentQuestionId = this.data.dataList[0].id
-      const resIndex = this.submit.findIndex(item => item.id === currentQuestionId)
-      if (resIndex != -1) {
+    radioChangeHandler(value) {
+      let res = this.checkCurrentSubmit()
+      if (res.findRes != -1) {
         //已经存在
-        this.submit[resIndex].option = value
+        this.submit.testList[res.findRes].answer = value
       } else {
         //不存在
-        this.submit.push(new QuestionSubmit(currentQuestionId, value))
+        this.submit.testList.push(
+          createSubmitItem(
+            res.nowQuestionId,
+            value,
+            this.exam.questionList[this.currentPage].questionCollectId
+          )
+        )
       }
-      console.log(this.submit)
     },
-    submitPaper() {
+    submitPaperHandler() {
       console.log('提交', this.submit)
       this.state.showBasic = true
     },
-    loadQuestionList(id, page) {
-      getQuestionList(id, page, 1).then(res => {
-        if (!res.dataList) return
-        this.radioVal = '' //每次刷新一题则清空现在所选的答案
-        this.data = res
-        console.log('请求试题成功', this.data)
-      })
+    loadRadioVal() {
+      let res = this.checkCurrentSubmit()
+      if (res.findRes != -1) {
+        //已经存在
+        this.radioVal = this.submit.testList[res.findRes].answer
+      } else {
+        this.radioVal = ''
+      }
+    },
+    checkCurrentSubmit() {
+      let nowQuestionId = this.exam.questionList[this.currentPage].id
+      let findRes = this.submit.testList.findIndex(item => item.questionId === nowQuestionId)
+      return { nowQuestionId, findRes }
+    },
+    loadQuestion(idx) {
+      if (idx < 0 || idx >= this.exam.questionList.length) return
+      this.currentPage = idx
+      if (this.currentPage == 0) {
+        this.first = true
+        this.last = !this.first
+      }
+      if (this.currentPage === this.exam.questionList.length - 1) {
+        this.first = false
+        this.last = !this.first
+      }
     }
   },
+  created() {
+    this.$instance = Taro.getCurrentInstance()
+  },
   mounted() {
-    this.loadQuestionList(36, 1)
+    //获取路由参数
+    const params = this.$instance.router.params
+    if (params.examId) {
+      //获取考试信息->更新状态
+    }
+    getExamById(32)
+      .then(res => {
+        this.exam = res
+        this.loadQuestion(0)
+        this.submit = createSubmit(this.exam.id)
+      })
+      .catch(e => {
+        console.error(e)
+        this.exam = getData()
+        this.loadQuestion(0)
+        this.submit = createSubmit(this.exam.id)
+      })
   },
   onLoad() {},
   onReady() {},
@@ -76,7 +110,7 @@ export default {
   <nut-cell title="展示弹出层" is-link @click="state.showBasic = true"></nut-cell>
   <nut-popup
     pop-class="popclass"
-    :style="{ padding: '50rpx 50rpx', borderRadius: '5rpx' }"
+    :style="{ padding: '50rpx 50rpx', borderRadius: '15rpx' }"
     v-model:visible="state.showBasic"
     :z-index="100"
   >
@@ -85,7 +119,7 @@ export default {
 
   <!-- 骨架屏 -->
   <nut-skeleton
-    v-if="!data"
+    v-if="!exam"
     width="250px"
     :style="{ padding: '1rem' }"
     height="100rpx"
@@ -95,20 +129,25 @@ export default {
   >
   </nut-skeleton>
 
-  <view v-if="data" class="question w-full h-100vh flex flex-col">
+  <view v-if="exam" class="question w-full h-100vh flex flex-col">
     <view class="flex justify-center p-3 border-b-gray-2 border-b-1">
       <view class="font-semibold text-lg"
-        >题目 {{ data.currentPage }}/{{ data.totalPages }} 剩余时间:50分钟</view
+        >题目 {{ currentPage + 1 }}/{{ exam.questionList.length }}</view
       >
     </view>
     <view class="flex flex-col p-3">
       <view class="text-normal text-gray-9"
-        >{{ data.currentPage }}. {{ data.dataList[0].content[0] }}</view
+        >{{ currentPage + 1 }}. {{ exam.questionList[currentPage].content[0] }}</view
       >
       <!-- 单选 -->
-      <nut-radiogroup v-model="radioVal" @change="radioChange" class="p-3" text-position="left">
+      <nut-radiogroup
+        v-model="radioVal"
+        @change="radioChangeHandler"
+        class="p-3"
+        text-position="left"
+      >
         <nut-radio
-          v-for="item in data.dataList[0].options"
+          v-for="item in exam.questionList[currentPage].options"
           :disabled="!editable"
           :key="item.index"
           class="h-100 border-b-gray-2 border-b-1"
@@ -121,9 +160,9 @@ export default {
       </nut-radiogroup>
     </view>
     <view class="flex justify-around mt-auto p-4 px-6">
-      <nut-button v-if="!data.first" @click="beforePage" plain type="primary">上一题</nut-button>
-      <nut-button v-if="!data.last" @click="nextPage" type="primary">下一题</nut-button>
-      <nut-button v-if="data.last" @click="submitPaper" type="success">提交</nut-button>
+      <nut-button v-if="!first" @click="beforePageHandler" plain type="primary">上一题</nut-button>
+      <nut-button v-if="!last" @click="nextPageHandler" type="primary">下一题</nut-button>
+      <nut-button v-if="last" @click="submitPaperHandler" type="success">提交</nut-button>
     </view>
   </view>
 </template>
