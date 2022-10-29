@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { updateInfo } from '@/api/user'
+import { updateInfo } from '@/utils/user'
 import Taro from '@tarojs/taro'
+import { Router } from 'tarojs-router-next'
 
 const formData = reactive({
   nickname: '',
   phoneNumber: ''
 })
 const ruleForm = ref<any>(null)
-//validate phone number
+//validate phoneNumber
 const customValidator = (val: string) => {
   if (val.length > 0) {
     return /^\d+$/.test(val)
@@ -35,16 +36,11 @@ const submit = () => {
     }
     //valid form
     if (valid) {
-      console.log('valid success:', formData)
       updateInfo({
         nickname: formData.nickname,
-        phoneNumber: formData.phoneNumber
-      }).then(() => {
-        Taro.showToast({
-          title: '更新成功',
-          icon: 'success'
-        })
+        phoneNumber: formData.phoneNumber ? formData.phoneNumber : null
       })
+      Router.back()
     } else {
       Taro.showToast({
         title: '格式错误',

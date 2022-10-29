@@ -12051,18 +12051,18 @@ taro-plugin-pinia@^1.0.0:
   resolved "https://registry.yarnpkg.com/taro-plugin-pinia/-/taro-plugin-pinia-1.0.0.tgz#7dee620cc84303a4b4c2df50e649bae72c3b6ac0"
   integrity sha512-Ip2LTRh7NGsFyEzkZWvU115xDqV3D8cRRbqqw0JKTvzHFBzpwycmrUVQQxV61AMg0r2RJm3mcEbQ997j7xNjtg==
 
-tarojs-router-next-plugin@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/tarojs-router-next-plugin/-/tarojs-router-next-plugin-3.1.1.tgz#ee1ec8618f2c8de3cef365d7eba7df11017502b9"
-  integrity sha512-gbiul5+FK7jFE26YaN3c5IqmN60MsKmMJZSiMcJFrZNs2kzZMTb8tfY5LK1/XwdZpzcM1bgeQZs0RIaYY+VnHg==
+tarojs-router-next-plugin@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/tarojs-router-next-plugin/-/tarojs-router-next-plugin-3.2.0.tgz#adca9da1c0ee677650f26f0770b485ddacb263ef"
+  integrity sha512-ae3KwqDXActP6+gkg5W+ecIffubX5J71ibBIv1ia4UOXboaTbAPJifzBrwE7cMIkAcasJjgjmpf5Juq/VoRKlQ==
   dependencies:
     normalize-path "^3.0.0"
     ts-morph "^15.1.0"
 
-tarojs-router-next@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/tarojs-router-next/-/tarojs-router-next-3.1.1.tgz#f6266941fb01cb4f5881d2874addb8c20d188162"
-  integrity sha512-Bij/tpkf3DcUrlT6COWyQlQwCkWXr6gGlY16/J22wxkdYgDOj4scYiZ3Q+HIJ5kdIMSVQJ/p8VvY/dc4nUClTw==
+tarojs-router-next@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/tarojs-router-next/-/tarojs-router-next-3.2.0.tgz#ee3cabede38e627689547b635b24caa01c7762de"
+  integrity sha512-nbIsnsEXFTuXCBilzW76Fk3zpnlYa2INuyWBiqVXPZ/5FLFo0ppYJ8smIOWtCNpOrVn+QzM6z+kQeg2hRUy4Qw==
   dependencies:
     query-string "^7.0.0"
 

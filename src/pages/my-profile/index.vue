@@ -15,3 +15,13 @@ const uploadUrl = process.env.API_HOST + '/auth/avatar'
     </view>
   </view>
 </template>
+
+<style lang="scss">
+.profileForm {
+  .nut-form-item__body__slots {
+    input {
+      text-align: left;
+    }
+  }
+}
+</style>

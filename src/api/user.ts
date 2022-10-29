@@ -18,5 +18,5 @@ export function updateInfo(data) {
 }
 
 export function register(data) {
-  return request.post('/auth/signup', data)
+  return request.post<string>('/auth/signup', data)
 }

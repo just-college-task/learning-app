@@ -29,8 +29,6 @@ export const useTabStore = defineStore('tab', (initialPagePath?: string) => {
 
 //userStore
 export const useUserStore = defineStore('user', () => {
-  const nickname = ref('')
-  const avatar = ref('')
   const isLogin = ref(false)
   const info = ref<User>()
 
@@ -43,17 +41,14 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function clearUser() {
-    nickname.value = ''
-    avatar.value = ''
+    info.value = undefined
     isLogin.value = false
   }
 
   return {
     info,
     setInfo,
-    nickname,
     isLogin,
-    avatar,
     setIsLogin,
     clearUser
   }
