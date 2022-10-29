@@ -2,7 +2,7 @@
 import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
 import { register } from '@/api/user'
-import { wechatLogin } from '@/utils/wechat'
+import { wechatLogin } from '@/utils/auth'
 
 Taro.setNavigationBarTitle({ title: '登入' })
 

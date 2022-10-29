@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store'
 import { computed } from 'vue'
-import { wechatLogin } from '@/utils/wechat'
+import { wechatLogin } from '@/utils/auth'
 // import { Router } from 'tarojs-router-next'
 
 const props = defineProps<{

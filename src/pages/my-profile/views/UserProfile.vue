@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import { updateInfo } from '@/api/user'
+import Taro from '@tarojs/taro'
 
 const formData = reactive({
   nickname: '',
@@ -15,25 +17,40 @@ const customValidator = (val: string) => {
   }
 }
 //validate nickname
-const nameLengthValidator = (val: string) => val?.length >= 2
+const nameLengthValidator = (val: string) => (val?.length > 0 ? val?.length >= 2 : true)
 // 失去焦点校验
 const customBlurValidate = (prop: string) => {
-  ruleForm.value.validate(prop).then(({ valid, errors }: any) => {
-    if (valid) {
-      console.log('success', formData)
-    } else {
-      console.log('error submit!!', errors)
-    }
-  })
+  ruleForm.value.validate(prop)
 }
 
 //submit
 const submit = () => {
-  ruleForm.value.validate().then(({ valid, errors }: any) => {
+  ruleForm.value.validate().then(({ valid }: any) => {
+    if (!formData.nickname && !formData.phoneNumber) {
+      Taro.showToast({
+        title: '表单为空',
+        icon: 'error'
+      })
+      throw new Error('formData empty')
+    }
+    //valid form
     if (valid) {
-      console.log('success', formData)
+      console.log('valid success:', formData)
+      updateInfo({
+        nickname: formData.nickname,
+        phoneNumber: formData.phoneNumber
+      }).then(() => {
+        Taro.showToast({
+          title: '更新成功',
+          icon: 'success'
+        })
+      })
     } else {
-      console.log('error submit!!', errors)
+      Taro.showToast({
+        title: '格式错误',
+        icon: 'error'
+      })
+      throw new Error('valid error')
     }
   })
 }
@@ -43,21 +60,17 @@ const submit = () => {
   <nut-form
     :model-value="formData"
     :rules="{
-      name: [
+      nickname: [
         {
           message: '用户名至少两个字符',
           validator: nameLengthValidator
         }
-      ]
+      ],
+      phoneNumber: [{ validator: customValidator, message: '必须输入数字' }]
     }"
     ref="ruleForm"
   >
-    <nut-form-item
-      label="用户名"
-      prop="nickname"
-      required
-      :rules="[{ required: true, message: '请填写用户名' }]"
-    >
+    <nut-form-item label="用户名" prop="nickname">
       <input
         class="nut-input-text"
         @blur="customBlurValidate('nickname')"
@@ -69,13 +82,11 @@ const submit = () => {
     <nut-form-item
       label="手机号"
       prop="phoneNumber"
-      :rules="[
-        // { required: true, message: '请填写手机号' },
-        { validator: customValidator, message: '必须输入数字' }
-      ]"
+      :rules="[{ validator: customValidator, message: '必须输入数字' }]"
     >
       <input
         class="nut-input-text"
+        @blur="customBlurValidate('phoneNumber')"
         v-model="formData.phoneNumber"
         placeholder="请输入手机号"
         type="text"

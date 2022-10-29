@@ -3,6 +3,7 @@ import { useUserStore } from '@/store'
 import { computed } from 'vue'
 import UserCard from './views/UserCard.vue'
 import UserOperate from './views/UserOperate.vue'
+import { logout } from '@/utils/auth'
 
 const userStore = useUserStore()
 const isLoginRef = computed(() => userStore.isLogin)
@@ -11,7 +12,7 @@ const avatar = computed(() => userStore.avatar)
 </script>
 
 <template>
-  <view class="person page-wrapper tab-page-wrapper flex flex-col items-center">
+  <view class="person page-wrapper tab-page-wrapper relative w-full flex flex-col items-center">
     <view class="header flex justify-center w-full">
       <view class="back-curves w-full h-30vh absolute"> </view>
       <user-card :nickname="nickname" :avatar="avatar" :isLogin="isLoginRef" userType="普通用户" />
@@ -25,6 +26,11 @@ const avatar = computed(() => userStore.avatar)
           <view class="arr"></view>
         </view>
       </view>
+    </view>
+    <view class="w-full px-15 mt-35px flex justify-center">
+      <nut-button v-if="userStore.isLogin" type="danger" class="w-580px" @click="logout"
+        >注销</nut-button
+      >
     </view>
   </view>
 </template>

@@ -24,3 +24,12 @@ export function wechatLogin() {
     })
   }
 }
+
+export function logout() {
+  Taro.removeStorageSync(STORAGE_TOKEN_KEY)
+  userStore.clearUser()
+  Taro.showToast({
+    title: '注销登录成功',
+    icon: 'success'
+  })
+}
