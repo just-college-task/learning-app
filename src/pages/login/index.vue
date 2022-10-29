@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import { useUserStore } from '@/store'
 import { register } from '@/api/user'
 import { wechatLogin } from '@/utils/auth'
+import Router from 'tarojs-router-next'
 
 Taro.setNavigationBarTitle({ title: '登入' })
 
@@ -25,6 +26,15 @@ function testAPI() {
   }
   register(data)
 }
+
+async function handleLoginClicked() {
+  await wechatLogin()
+  Router.back()
+  Taro.showToast({
+    title: '登录成功！',
+    icon: 'success'
+  })
+}
 </script>
 
 <template>
@@ -40,7 +50,7 @@ function testAPI() {
       </view>
       <nut-button type="primary" @click="setLogin">登录</nut-button>
       <nut-button type="primary" @click="testAPI">注册</nut-button>
-      <nut-button type="primary" @click="wechatLogin">微信登录</nut-button>
+      <nut-button type="primary" @click="handleLoginClicked">微信登录</nut-button>
     </view>
   </view>
 </template>
