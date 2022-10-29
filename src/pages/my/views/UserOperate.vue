@@ -9,11 +9,6 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    title: '我的课程',
-    iconName: 'message',
-    action: () => Router.toMyCourses()
-  },
-  {
     title: '我管理的课程',
     iconName: 'people',
     action: () => Router.toMyManageCourses()
@@ -22,6 +17,11 @@ const menuItems: MenuItem[] = [
     title: '我的证书',
     iconName: 'success',
     action: () => Router.toMyCertificates()
+  },
+  {
+    title: '修改信息',
+    iconName: 'tips',
+    action: () => Router.toMyProfile()
   }
 ]
 </script>

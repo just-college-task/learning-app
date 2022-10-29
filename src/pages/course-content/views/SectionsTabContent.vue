@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 
+const props = defineProps<{
+  courseId: number
+}>()
+console.info(props.courseId)
+
 function handleSectionClicked() {
   Taro.navigateTo({ url: '/pages/section-content/index' })
 }

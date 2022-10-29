@@ -1,8 +1,14 @@
 import request from '@/utils/request'
-import { PageParams } from 'types/api'
+import { Announcement, PageParams } from 'types/api'
 import { Course, WithPage } from 'types/api'
 
 const COURSE_BASE_URL = '/api/course'
 
 export const fetchPopularCourses = (pageParams: PageParams) =>
   request.get<WithPage<Course>>(`${COURSE_BASE_URL}/popular`, pageParams)
+
+export const fetchCourse = (courseId: number) =>
+  request.get<Course>(`${COURSE_BASE_URL}/${courseId}`)
+
+export const fetchAnnouncements = (courseId: number, pageParams: PageParams) =>
+  request.get<WithPage<Announcement>>(`${COURSE_BASE_URL}/${courseId}/announcement`, pageParams)

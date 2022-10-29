@@ -12,6 +12,10 @@ export function info() {
   return request.get('/auth/info')
 }
 
+export function updateInfo(data) {
+  return request.post('/auth/update', data)
+}
+
 export function register(data) {
   return request.post('/auth/signup', data)
 }

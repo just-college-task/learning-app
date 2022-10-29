@@ -26,7 +26,7 @@ export const useTabStore = defineStore('tab', () => {
 
 //userStore
 export const useUserStore = defineStore('user', () => {
-  const nickname = ref('匿名用户')
+  const nickname = ref('')
   const avatar = ref('')
   const isLogin = ref(false)
 
@@ -34,10 +34,17 @@ export const useUserStore = defineStore('user', () => {
     isLogin.value = value
   }
 
+  function clearUser() {
+    nickname.value = ''
+    avatar.value = ''
+    isLogin.value = false
+  }
+
   return {
     nickname,
     isLogin,
     avatar,
-    setIsLogin
+    setIsLogin,
+    clearUser
   }
 })

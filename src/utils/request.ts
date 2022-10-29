@@ -1,6 +1,6 @@
-/* eslint-disable prettier/prettier */
 import Taro, { RequestParams } from '@tarojs/taro'
 import type { Response } from '../../types/api'
+import { STORAGE_TOKEN_KEY } from '@/definitions'
 const apiConfig = {
   baseUrl: process.env.API_HOST
 }
@@ -9,7 +9,7 @@ const apiConfig = {
 const interceptor = function (chain: any) {
   const requestParams = chain.requestParams
   // const { method, data, url } = requestParams
-  const token = Taro.getStorageSync('TOKEN') //get token from Taro Storage
+  const token = Taro.getStorageSync(STORAGE_TOKEN_KEY) //get token from Taro Storage
   if (token) {
     requestParams.header = {
       ...requestParams.header,

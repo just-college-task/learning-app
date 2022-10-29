@@ -8,6 +8,7 @@ import {
   Swiper,
   SwiperItem,
   Avatar,
+  Badge,
   Progress,
   Tabs,
   TabPane,
@@ -20,11 +21,17 @@ import {
   Grid,
   GridItem,
   Popup,
-  OverLay
+  OverLay,
+  Uploader,
+  Form,
+  FormItem,
+  Cell,
+  CellGroup
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
   Button,
+  Badge,
   Toast,
   Tabbar,
   TabbarItem,
@@ -44,7 +51,12 @@ const nutuiComponents = [
   Grid,
   GridItem,
   Popup,
-  OverLay
+  OverLay,
+  Uploader,
+  Form,
+  FormItem,
+  Cell,
+  CellGroup
 ]
 
 export function useNutUI(app: App) {
