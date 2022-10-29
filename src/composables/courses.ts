@@ -1,6 +1,11 @@
-import { fetchAnnouncements, fetchCourse, fetchPopularCourses } from '@/api/courses'
-import { PageParams } from 'types/api'
-import { useQuery } from 'vue-query'
+import {
+  fetchAnnouncements,
+  fetchCourse,
+  fetchPopularCourses,
+  postAnnouncement
+} from '@/api/courses'
+import { Announcement, PageParams } from 'types/api'
+import { useMutation, useQuery } from 'vue-query'
 
 const defaultPageParams: PageParams = {
   page: 1,
@@ -14,6 +19,9 @@ export const useAnnouncementsQuery = (courseId: number, params: PageParams = def
   useQuery(['COURSE_ANNOUNCEMENT', courseId, params.page, params.size], () =>
     fetchAnnouncements(courseId, params)
   )
+
+export const usePostAnnouncement = (courseId: number) =>
+  useMutation((data: Omit<Announcement, 'announcementId'>) => postAnnouncement(courseId, data))
 
 export const useCourseQuery = (courseId: number) =>
   useQuery(['COURSE', courseId], () => fetchCourse(courseId))

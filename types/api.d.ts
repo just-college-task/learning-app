@@ -94,7 +94,7 @@ export interface Announcement {
   courseId: number
   title: string
   content: string
-  Time: any
+  time: any
 }
 
 export interface User {

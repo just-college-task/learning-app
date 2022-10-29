@@ -12,3 +12,8 @@ export const fetchCourse = (courseId: number) =>
 
 export const fetchAnnouncements = (courseId: number, pageParams: PageParams) =>
   request.get<WithPage<Announcement>>(`${COURSE_BASE_URL}/${courseId}/announcement`, pageParams)
+
+export const postAnnouncement = (
+  courseId: number,
+  announcement: Omit<Announcement, 'announcementId'>
+) => request.post(`${COURSE_BASE_URL}/${courseId}/announcement/create`, announcement)
