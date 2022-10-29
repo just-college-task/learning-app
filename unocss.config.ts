@@ -55,6 +55,13 @@ export default defineConfig({
         'font-size': '32rpx',
         'line-height': '48rpx'
       }
+    ],
+    [
+      'text-small-normal',
+      {
+        'font-size': '28rpx',
+        'line-height': '44rpx'
+      }
     ]
   ],
   theme: {

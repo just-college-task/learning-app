@@ -1,6 +1,14 @@
 import { TabBar } from '@tarojs/taro'
+import type { InjectionKey } from 'vue'
 
 export const STORAGE_TOKEN_KEY = 'STORAGE_TOKEN'
+
+interface ActiveSheetProvide {
+  setMenuItems: (value: any) => any
+  open: () => any
+}
+
+export const ACTIVE_SHEET_PROVIDE_KEY = Symbol() as InjectionKey<ActiveSheetProvide>
 
 interface Tab {
   text: string

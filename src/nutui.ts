@@ -28,7 +28,8 @@ import {
   FormItem,
   Cell,
   CellGroup,
-  Empty
+  Empty,
+  ActionSheet
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
@@ -60,7 +61,8 @@ const nutuiComponents = [
   FormItem,
   Cell,
   CellGroup,
-  Empty
+  Empty,
+  ActionSheet
 ]
 
 export function useNutUI(app: App) {

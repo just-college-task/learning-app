@@ -23,6 +23,7 @@ useLoad(async () => {
   }
 
   tabStore.switchTab(tabs[0].pagePath)
+  // Taro.navigateTo({ url: '/pages/course-content/index' })
 })
 </script>
 
