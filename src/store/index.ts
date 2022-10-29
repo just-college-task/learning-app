@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { tabs } from '@/definitions'
+import Taro from '@tarojs/taro'
 import { User } from 'types/api'
 
 export const useCounterStore = defineStore('counter', () => {
@@ -12,16 +13,17 @@ export const useCounterStore = defineStore('counter', () => {
   return { count, increment }
 })
 
-export const useTabStore = defineStore('tab', () => {
-  const activeName = ref(tabs[0].pagePath)
+export const useTabStore = defineStore('tab', (initialPagePath?: string) => {
+  const activePath = ref(initialPagePath ?? tabs[0].pagePath)
 
-  function setActiveName(newActiveName: string) {
-    activeName.value = newActiveName
+  function switchTab(path: string) {
+    activePath.value = path
+    Taro.switchTab({ url: `/${path}` })
   }
 
   return {
-    activeName,
-    setActiveName
+    activePath,
+    switchTab
   }
 })
 

@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import Taro from '@tarojs/taro'
 import { computed } from 'vue'
 import { tabs } from '@/definitions'
 import { useTabStore } from '@/store'
 
 const tabStore = useTabStore()
-const activeNameRef = computed(() => tabStore.activeName)
+const activeNameRef = computed(() => tabStore.activePath)
 
 function handleTabSwitch(e: any) {
-  tabStore.setActiveName(e.name)
-  Taro.switchTab({ url: `/${e.name}` })
+  tabStore.switchTab(e.name)
 }
 </script>
 

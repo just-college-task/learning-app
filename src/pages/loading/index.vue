@@ -2,10 +2,11 @@
 import { useUserInfoQuery } from '@/composables/user'
 import Taro, { useLoad } from '@tarojs/taro'
 import { STORAGE_TOKEN_KEY } from '@/definitions'
-import { useUserStore } from '@/store'
+import { useTabStore, useUserStore } from '@/store'
 
 const hasToken = Boolean(Taro.getStorageSync(STORAGE_TOKEN_KEY))
 const userStore = useUserStore()
+const tabStore = useTabStore()
 
 const { refetch } = useUserInfoQuery({
   enabled: false,
@@ -20,7 +21,7 @@ useLoad(async () => {
     await refetch.value()
   }
 
-  Taro.switchTab({ url: '/pages/index/index' })
+  tabStore.switchTab('pages/courses/index')
 })
 </script>
 
