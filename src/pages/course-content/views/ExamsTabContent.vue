@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import Taro from '@tarojs/taro'
 
+const props = defineProps<{
+  courseId: number
+}>()
+console.info(props.courseId)
+
 function handleClicked() {
   Taro.navigateTo({ url: '/pages/course-content/views/exams/index' })
 }
