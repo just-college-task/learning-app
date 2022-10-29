@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import Taro, { useRouter } from '@tarojs/taro'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { useCourseQuery } from '@/composables/courses'
 
 const router = useRouter()
 const courseId = Number(router.params.id!)
-console.info('course-detail', courseId)
 
 const courseQuery = useCourseQuery(courseId)
 const course = courseQuery.data
