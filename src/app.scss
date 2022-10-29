@@ -4,8 +4,9 @@
 }
 
 .tab-page-wrapper {
-  height: calc(100vh - 56px);
-  overflow: scroll;
+  height: calc(100vh - 112rpx);
+  overflow-x: hidden;
+  overflow-y: scroll;
   padding-bottom: 32rpx;
   box-sizing: border-box;
 }
