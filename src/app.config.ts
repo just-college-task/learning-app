@@ -2,6 +2,7 @@ import { tabList } from './definitions'
 
 export default defineAppConfig({
   pages: [
+    'pages/loading/index',
     'pages/index/index',
     'pages/courses/index',
     'pages/my/index',

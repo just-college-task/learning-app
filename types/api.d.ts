@@ -96,3 +96,10 @@ export interface Announcement {
   content: string
   Time: any
 }
+
+export interface User {
+  userId: number
+  nickname: string
+  avatar: Maybe<string>
+  phoneNumber: string
+}

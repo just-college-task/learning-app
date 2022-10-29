@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { User } from 'types/api'
 
 export function login(data) {
   return request.post('/auth/signin', data)
@@ -9,7 +10,7 @@ export function wechatLogin(data: { code: string }) {
 }
 
 export function info() {
-  return request.get('/auth/info')
+  return request.get<User>('/auth/info')
 }
 
 export function updateInfo(data) {

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { tabs } from '@/definitions'
+import { User } from 'types/api'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
@@ -29,9 +30,14 @@ export const useUserStore = defineStore('user', () => {
   const nickname = ref('')
   const avatar = ref('')
   const isLogin = ref(false)
+  const info = ref<User>()
 
   function setIsLogin(value: boolean) {
     isLogin.value = value
+  }
+
+  function setInfo(value: User) {
+    info.value = value
   }
 
   function clearUser() {
@@ -41,6 +47,8 @@ export const useUserStore = defineStore('user', () => {
   }
 
   return {
+    info,
+    setInfo,
     nickname,
     isLogin,
     avatar,
