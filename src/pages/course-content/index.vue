@@ -5,7 +5,7 @@ import SectionsTabContent from './views/SectionsTabContent.vue'
 import ExamsTabContent from './views/ExamsTabContent.vue'
 import { useRouter } from '@tarojs/taro'
 import { useCourseQuery } from '@/composables/courses'
-const activeTabIndex = ref(2)
+const activeTabIndex = ref(0)
 
 const router = useRouter()
 const courseId = Number(router.params.id!)

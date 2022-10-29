@@ -13,7 +13,7 @@ export default function useListQueryContainer<
   const wrapper = defineComponent((props: Props<T>, { slots }) => {
     return () => {
       const { data } = query
-      const isEmpty = computed(() => data.value?.dataList.length === 0)
+      const isEmpty = computed(() => data.value && data.value.dataList.length === 0)
 
       return h(
         'view',

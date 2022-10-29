@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useAnnouncementsQuery } from '@/composables/courses'
 import useListQueryContainer from '@/composables/useListQueryContainer'
-// import { computed } from 'vue'
 
 const props = defineProps<{
   courseId: number
