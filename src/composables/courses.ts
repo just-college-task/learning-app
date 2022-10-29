@@ -16,4 +16,4 @@ export const useAnnouncementsQuery = (courseId: number, params: PageParams = def
   )
 
 export const useCourseQuery = (courseId: number) =>
-  useQuery(['COURCE', courseId], () => fetchCourse(courseId))
+  useQuery(['COURSE', courseId], () => fetchCourse(courseId))
