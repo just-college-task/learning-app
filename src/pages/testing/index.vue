@@ -47,6 +47,9 @@ export default {
     submitPaperHandler() {
       console.log('提交', this.submit)
       this.state.showBasic = true
+      Taro.redirectTo({
+        url: '/pages/test-result/index'
+      })
     },
     loadRadioVal() {
       let res = this.checkCurrentSubmit()
@@ -65,14 +68,15 @@ export default {
     loadQuestion(idx) {
       if (idx < 0 || idx >= this.exam.questionList.length) return
       this.currentPage = idx
+      this.first = false
+      this.last = false
       if (this.currentPage == 0) {
         this.first = true
-        this.last = !this.first
       }
       if (this.currentPage === this.exam.questionList.length - 1) {
-        this.first = false
-        this.last = !this.first
+        this.last = true
       }
+      console.log([this.first, this.last])
     }
   },
   created() {
@@ -84,7 +88,7 @@ export default {
     if (params.examId) {
       //获取考试信息->更新状态
     }
-    getExamById(32)
+    getExamById(78)
       .then(res => {
         this.exam = res
         this.loadQuestion(0)
@@ -107,7 +111,7 @@ export default {
 
 <template>
   <!-- 弹出层 -->
-  <nut-cell title="展示弹出层" is-link @click="state.showBasic = true"></nut-cell>
+  <!-- <nut-cell title="展示弹出层" is-link @click="state.showBasic = true"></nut-cell> -->
   <nut-popup
     pop-class="popclass"
     :style="{ padding: '50rpx 50rpx', borderRadius: '15rpx' }"

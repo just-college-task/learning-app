@@ -9,7 +9,7 @@ const props = defineProps<{
 console.info(props.courseId)
 
 function handleClicked() {
-  Taro.navigateTo({ url: '/pages/course-content/views/exams/index' })
+  Taro.navigateTo({ url: '/pages/testing/index' })
 }
 
 const subTabs = [

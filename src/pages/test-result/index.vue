@@ -1,5 +1,7 @@
 <script>
 import { getData } from './mock'
+import Taro from '@tarojs/taro'
+
 export default {
   data() {
     return {
@@ -18,6 +20,9 @@ export default {
     },
     lookPaper(e) {
       console.log('查看试卷')
+      Taro.redirectTo({
+        url: '/pages/testing/index'
+      })
     }
   },
   mounted() {
