@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { Announcement, PageParams } from 'types/api'
+import { Announcement, CoursePart, PageParams } from 'types/api'
 import { Course, WithPage } from 'types/api'
 
 const COURSE_BASE_URL = '/api/course'
@@ -9,6 +9,9 @@ export const fetchPopularCourses = (pageParams: PageParams) =>
 
 export const fetchCourse = (courseId: number) =>
   request.get<Course>(`${COURSE_BASE_URL}/${courseId}`)
+
+export const fetchCourseParts = (courseId: number) =>
+  request.get<CoursePart[]>(`${COURSE_BASE_URL}/${courseId}/parts`)
 
 export const fetchAnnouncements = (courseId: number, pageParams: PageParams) =>
   request.get<WithPage<Announcement>>(`${COURSE_BASE_URL}/${courseId}/announcement`, pageParams)

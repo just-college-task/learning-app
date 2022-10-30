@@ -1,6 +1,7 @@
 import {
   fetchAnnouncements,
   fetchCourse,
+  fetchCourseParts,
   fetchJoinedCourses,
   fetchPopularCourses,
   postAnnouncement
@@ -26,6 +27,9 @@ export const usePostAnnouncement = (courseId: number) =>
 
 export const useCourseQuery = (courseId: number) =>
   useQuery(['COURSE', courseId], () => fetchCourse(courseId))
+
+export const useCoursePartsQuery = (courseId: number) =>
+  useQuery(['COURSE_PARTS', courseId], () => fetchCourseParts(courseId))
 
 export const useJoinedCoursesQuery = (params: PageParams = defaultPageParams) =>
   useQuery(['JOINED_COURSES', params.page, params.size], () => fetchJoinedCourses(params))
