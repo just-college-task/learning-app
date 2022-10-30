@@ -17,7 +17,7 @@ export async function wechatLogin() {
   userStore.setInfo(userInfo)
 }
 
-export function login(userData) {
+export function login(userData): boolean {
   userApi
     .login({
       phoneNumber: userData.phoneNumber,
@@ -31,6 +31,7 @@ export function login(userData) {
       userStore.setIsLogin(true)
       userStore.setInfo(userInfo)
     })
+  return userStore.isLogin ? true : false
 }
 
 export function logout() {

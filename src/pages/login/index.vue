@@ -22,15 +22,20 @@ async function Login() {
     })
     throw new Error('userData empty')
   }
-  await login({
+  const res = login({
     phoneNumber: userData.phoneNumber,
     password: userData.password
   })
-  Router.back()
-  Taro.showToast({
-    title: '登录成功！',
-    icon: 'success'
-  })
+  if (res) {
+    Taro.showToast({
+      title: '登入成功',
+      icon: 'success',
+      duration: 1000
+    })
+    setTimeout(() => {
+      Router.back()
+    }, 2000)
+  }
 }
 
 async function handleLoginClicked() {
