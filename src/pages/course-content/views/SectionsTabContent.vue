@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useCoursePartsQuery } from '@/composables/courses'
 import Taro from '@tarojs/taro'
+import { computed } from 'vue'
 
 const props = defineProps<{
   courseId: number
@@ -8,7 +9,13 @@ const props = defineProps<{
 console.info(props.courseId)
 
 const partsQuery = useCoursePartsQuery(props.courseId)
-const parts = partsQuery.data
+const parts = computed(() => {
+  if (partsQuery.data?.value?.length) {
+    return partsQuery.data?.value
+  } else {
+    return [{ name: '排比、对偶与层进' }, { name: '排比、对偶与层进' }]
+  }
+})
 
 function handleSectionClicked() {
   Taro.navigateTo({ url: '/pages/section-content/index' })
