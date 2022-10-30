@@ -17,3 +17,6 @@ export const postAnnouncement = (
   courseId: number,
   announcement: Omit<Announcement, 'announcementId'>
 ) => request.post(`${COURSE_BASE_URL}/${courseId}/announcement/create`, announcement)
+
+export const fetchJoinedCourses = (pageParams: PageParams) =>
+  request.get<WithPage<Course>>(`/api/user/joined_courses`, pageParams)

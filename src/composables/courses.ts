@@ -1,6 +1,7 @@
 import {
   fetchAnnouncements,
   fetchCourse,
+  fetchJoinedCourses,
   fetchPopularCourses,
   postAnnouncement
 } from '@/api/courses'
@@ -25,3 +26,6 @@ export const usePostAnnouncement = (courseId: number) =>
 
 export const useCourseQuery = (courseId: number) =>
   useQuery(['COURSE', courseId], () => fetchCourse(courseId))
+
+export const useJoinedCoursesQuery = (params: PageParams = defaultPageParams) =>
+  useQuery(['JOINED_COURSES', params.page, params.size], () => fetchJoinedCourses(params))
