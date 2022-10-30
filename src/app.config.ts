@@ -17,7 +17,8 @@ export default defineAppConfig({
     'pages/course-content/index',
     'pages/test-result/index',
     'pages/testing/index',
-    'pages/section-content/index'
+    'pages/section-content/index',
+    'pages/create-announcement/index'
   ],
   window: {
     backgroundTextStyle: 'light',
