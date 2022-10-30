@@ -14,6 +14,7 @@ export default defineAppConfig({
     'pages/my-certificates/index',
     'pages/my-profile/index',
     'pages/course-detail/index',
+    'pages/course-all/index',
     'pages/course-content/index',
     'pages/test-result/index',
     'pages/testing/index',

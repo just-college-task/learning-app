@@ -8,8 +8,6 @@ const { data, isLoading } = usePopularCoursesQuery({
   page: 1,
   size: 4
 })
-
-data.value
 </script>
 
 <template>
