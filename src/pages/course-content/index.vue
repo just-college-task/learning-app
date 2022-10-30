@@ -48,7 +48,7 @@ provide(ACTIVE_SHEET_PROVIDE_KEY, {
     <view class="grow rounded-t-5 overflow-hidden flex flex-col">
       <nut-tabs v-model="activeTabIndex" class="grow flex flex-col">
         <nut-tabpane title="公告" class="left-0 absolute border-t-2 border-gray-2 bg-background">
-          <NoticesTabContent :courseId="courseId" />
+          <NoticesTabContent :courseId="courseId" :course="course" />
         </nut-tabpane>
         <nut-tabpane title="章节列表" class="left-[100%] absolute border-t-2 border-gray-2">
           <SectionsTabContent :courseId="courseId" />

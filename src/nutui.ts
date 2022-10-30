@@ -29,7 +29,8 @@ import {
   Cell,
   CellGroup,
   Empty,
-  ActionSheet
+  ActionSheet,
+  TextArea
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
@@ -62,7 +63,8 @@ const nutuiComponents = [
   Cell,
   CellGroup,
   Empty,
-  ActionSheet
+  ActionSheet,
+  TextArea
 ]
 
 export function useNutUI(app: App) {
