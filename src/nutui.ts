@@ -31,7 +31,8 @@ import {
   Empty,
   ActionSheet,
   TextArea,
-  Switch
+  Switch,
+  Rate
 } from '@nutui/nutui-taro'
 
 const nutuiComponents = [
@@ -66,7 +67,8 @@ const nutuiComponents = [
   Empty,
   ActionSheet,
   TextArea,
-  Switch
+  Switch,
+  Rate
 ]
 
 export function useNutUI(app: App) {

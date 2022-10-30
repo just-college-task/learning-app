@@ -12,14 +12,8 @@ const ListQueryContainer = useListQueryContainer(useManagedCoursesQuery())
     <list-query-container v-slot="{ list }">
       <view class="flex flex-col gap-4">
         <CourseItem v-for="course in list" :course="course">
-          <view>
-            <view class="text-gray-400 text-xs">已学 3/20 节</view>
-            <nut-progress
-              class="rounded overflow-hidden mt-1"
-              percentage="30"
-              :show-text="false"
-              size="small"
-            />
+          <view class="flex justify-end">
+            <view class="text-xs text-gray-400"> {{ course.members }} 人参加 </view>
           </view>
         </CourseItem>
       </view>

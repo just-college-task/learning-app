@@ -10,7 +10,7 @@ const courseId = Number(router.params.id!)
 const courseQuery = useCourseQuery(courseId)
 const course = courseQuery.data
 
-const tabIndex = ref(0)
+const tabIndex = ref(1)
 
 function handleJoinClicked() {
   Taro.navigateTo({ url: `/pages/course-content/index?id=${courseId}` })
