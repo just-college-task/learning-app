@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ACTIVE_SHEET_PROVIDE_KEY } from '@/definitions'
+import { ACTION_SHEET_PROVIDE_KEY } from '@/definitions'
 import { inject } from 'vue'
 
-const activeSheet = inject(ACTIVE_SHEET_PROVIDE_KEY)
+const activeSheet = inject(ACTION_SHEET_PROVIDE_KEY)
 
 activeSheet?.setMenuItems([
   {

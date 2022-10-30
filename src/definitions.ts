@@ -8,7 +8,7 @@ interface ActiveSheetProvide {
   open: () => any
 }
 
-export const ACTIVE_SHEET_PROVIDE_KEY = Symbol() as InjectionKey<ActiveSheetProvide>
+export const ACTION_SHEET_PROVIDE_KEY = Symbol() as InjectionKey<ActiveSheetProvide>
 
 interface Tab {
   text: string

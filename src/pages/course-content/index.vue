@@ -5,7 +5,7 @@ import SectionsTabContent from './views/SectionsTabContent.vue'
 import ExamsTabContent from './views/ExamsTabContent.vue'
 import { useRouter } from '@tarojs/taro'
 import { useCourseQuery } from '@/composables/courses'
-import { ACTIVE_SHEET_PROVIDE_KEY } from '@/definitions'
+import { ACTION_SHEET_PROVIDE_KEY } from '@/definitions'
 
 const activeTabIndex = ref(0)
 
@@ -28,7 +28,7 @@ const menuItems = ref([
   }
 ])
 
-provide(ACTIVE_SHEET_PROVIDE_KEY, {
+provide(ACTION_SHEET_PROVIDE_KEY, {
   setMenuItems: value => {
     menuItems.value = value
   },
