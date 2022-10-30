@@ -14,7 +14,7 @@ const props = defineProps<{
 const query = useAnnouncementsQuery(props.courseId)
 const ListQueryContainer = useListQueryContainer(query)
 const user = useUserStore()
-const canCreate = computed(() => user.info?.userId !== props.course?.userid)
+const canCreate = computed(() => user.info?.userId === props.course?.userid)
 
 function showNew() {
   Router.navigate({
