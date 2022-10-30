@@ -13,7 +13,7 @@ const isLogin = computed(() => userStore.isLogin)
     ><view v-if="!isLogin" class="w-full h-full grid place-content-center"
       ><nut-button @click="Router.toLogin">登录</nut-button>
     </view>
-    <view class="px-4">
+    <view v-else class="px-4">
       <my-courses-card />
     </view>
   </view>
