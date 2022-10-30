@@ -51,7 +51,7 @@ interface CoursePart {
   partId: number
   courseId: number
   video: any
-  sort: number
+  /** 章节序号 */ sort: number
   name: string
   noteList: any[]
 }
