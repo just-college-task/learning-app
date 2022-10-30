@@ -3,9 +3,12 @@ import type { Response } from '../../types/api'
 import { STORAGE_TOKEN_KEY } from '@/definitions'
 import Router from 'tarojs-router-next'
 import { wait } from './helper'
+import { useUserStore } from '@/store'
 const apiConfig = {
   baseUrl: process.env.API_HOST
 }
+
+const userStore = useUserStore()
 
 //interceptor
 const requestInterceptor: Taro.interceptor = function (chain) {
@@ -40,6 +43,7 @@ const request = async <T>(
     data: data,
     async success(res) {
       if (res.statusCode === 401) {
+        userStore.clearUser()
         Router.toLogin()
         await wait(1000)
         Taro.showToast({

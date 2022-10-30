@@ -39,9 +39,11 @@ export interface Course {
   isPublic: number
   members: number
   createTime: null
-  poster: null
+  poster: string
   score: number
 }
+
+export type NewCourse = Pick<Course, 'name' | 'profile' | 'poster'>
 
 interface CoursePart {
   partId: number

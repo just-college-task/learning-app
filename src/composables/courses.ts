@@ -3,10 +3,12 @@ import {
   fetchCourse,
   fetchCourseParts,
   fetchJoinedCourses,
+  fetchManagedCourses,
   fetchPopularCourses,
-  postAnnouncement
+  postAnnouncement,
+  postCourse
 } from '@/api/courses'
-import { Announcement, PageParams } from 'types/api'
+import { Announcement, NewCourse, PageParams } from 'types/api'
 import { useMutation, useQuery } from 'vue-query'
 
 const defaultPageParams: PageParams = {
@@ -33,3 +35,8 @@ export const useCoursePartsQuery = (courseId: number) =>
 
 export const useJoinedCoursesQuery = (params: PageParams = defaultPageParams) =>
   useQuery(['JOINED_COURSES', params.page, params.size], () => fetchJoinedCourses(params))
+
+export const useManagedCoursesQuery = (params: PageParams = defaultPageParams) =>
+  useQuery(['MANAGED_COURSES', params.page, params.size], () => fetchManagedCourses(params))
+
+export const usePostCourseMutation = () => useMutation((data: NewCourse) => postCourse(data))

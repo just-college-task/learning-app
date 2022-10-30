@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { tabs } from '@/definitions'
+import { STORAGE_TOKEN_KEY, tabs } from '@/definitions'
 import Taro from '@tarojs/taro'
 import { User } from 'types/api'
 
@@ -41,6 +41,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function clearUser() {
+    Taro.removeStorageSync(STORAGE_TOKEN_KEY)
     info.value = undefined
     isLogin.value = false
   }

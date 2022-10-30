@@ -5,20 +5,16 @@ import * as userApi from '@/api/user'
 
 const userStore = useUserStore()
 
-export function wechatLogin() {
-  return Taro.login({
-    success(result) {
-      const { code } = result
-      userApi.wechatLogin({ code }).then(async token => {
-        if (!token) return
-        await Taro.setStorage({ key: STORAGE_TOKEN_KEY, data: token })
+export async function wechatLogin() {
+  const result = await Taro.login()
+  const { code } = result
+  const token = await userApi.wechatLogin({ code })
+  if (!token) return
+  await Taro.setStorage({ key: STORAGE_TOKEN_KEY, data: token })
 
-        const userInfo = await userApi.info()
-        userStore.setIsLogin(true)
-        userStore.setInfo(userInfo)
-      })
-    }
-  })
+  const userInfo = await userApi.info()
+  userStore.setIsLogin(true)
+  userStore.setInfo(userInfo)
 }
 
 export function login(userData) {

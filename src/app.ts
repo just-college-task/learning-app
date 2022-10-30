@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { useNutUI } from './nutui'
-import { VueQueryPlugin, useQueryProvider } from 'vue-query'
+import { VueQueryPlugin, useQueryProvider, QueryCache, QueryClient } from 'vue-query'
 import 'uno.css'
 import './app.scss'
 import './middleware'

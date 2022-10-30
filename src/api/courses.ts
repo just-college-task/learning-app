@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { Announcement, CoursePart, PageParams } from 'types/api'
+import { Announcement, NewCourse, CoursePart, PageParams } from 'types/api'
 import { Course, WithPage } from 'types/api'
 
 const COURSE_BASE_URL = '/api/course'
@@ -23,3 +23,8 @@ export const postAnnouncement = (
 
 export const fetchJoinedCourses = (pageParams: PageParams) =>
   request.get<WithPage<Course>>(`/api/user/joined_courses`, pageParams)
+
+export const fetchManagedCourses = (pageParams: PageParams) =>
+  request.get<WithPage<Course>>(`/api/user/teaching_courses`, pageParams)
+
+export const postCourse = (course: NewCourse) => request.post(`${COURSE_BASE_URL}/create`, course)

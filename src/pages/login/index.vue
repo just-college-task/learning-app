@@ -3,6 +3,9 @@ import Taro from '@tarojs/taro'
 import { wechatLogin, login } from '@/utils/user'
 import Router from 'tarojs-router-next'
 import { reactive } from 'vue'
+import { useQueryClient } from 'vue-query'
+
+const queryClient = useQueryClient()
 
 Taro.setNavigationBarTitle({ title: '登录' })
 
@@ -32,6 +35,7 @@ async function Login() {
 
 async function handleLoginClicked() {
   await wechatLogin()
+  queryClient.invalidateQueries()
   Router.back()
   Taro.showToast({
     title: '登录成功！',
