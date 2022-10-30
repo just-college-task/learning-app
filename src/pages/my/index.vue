@@ -26,8 +26,8 @@ const isLogin = computed(() => userStore.isLogin)
         </view>
       </view>
     </view>
-    <view class="w-full px-5 mt-35px flex justify-center">
-      <nut-button v-if="isLogin" type="danger" class="w-580px" @click="logout">注销</nut-button>
+    <view class="w-full px-6 mt-35px flex justify-center box-border">
+      <nut-button v-if="isLogin" type="danger" class="w-full" @click="logout">注销</nut-button>
     </view>
   </view>
 </template>
