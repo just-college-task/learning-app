@@ -1,12 +1,14 @@
 import Taro, { RequestParams } from '@tarojs/taro'
 import type { Response } from '../../types/api'
 import { STORAGE_TOKEN_KEY } from '@/definitions'
+import Router from 'tarojs-router-next'
+import { wait } from './helper'
 const apiConfig = {
   baseUrl: process.env.API_HOST
 }
 
 //interceptor
-const interceptor = function (chain: any) {
+const requestInterceptor: Taro.interceptor = function (chain) {
   const requestParams = chain.requestParams
   // const { method, data, url } = requestParams
   const token = Taro.getStorageSync(STORAGE_TOKEN_KEY) //get token from Taro Storage
@@ -23,7 +25,7 @@ const interceptor = function (chain: any) {
 }
 
 //add interceptor
-Taro.addInterceptor(interceptor)
+Taro.addInterceptor(requestInterceptor)
 
 //request
 const request = async <T>(
@@ -36,7 +38,18 @@ const request = async <T>(
     isShowLoad: false,
     url: apiConfig.baseUrl + url,
     data: data,
-    success(res) {
+    async success(res) {
+      if (res.statusCode === 401) {
+        Router.toLogin()
+        await wait(1000)
+        Taro.showToast({
+          title: '请重新登陆',
+          icon: 'error',
+          duration: 3000
+        })
+        return
+      }
+
       if (res.statusCode !== 200) {
         Taro.showToast({
           title: res.data?.message,
