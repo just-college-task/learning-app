@@ -41,6 +41,8 @@ export interface Course {
   createTime: null
   poster: string
   score: number
+  totalPart: number
+  learnedPart: number
 }
 
 export type NewCourse = Pick<Course, 'name' | 'profile' | 'poster'>
