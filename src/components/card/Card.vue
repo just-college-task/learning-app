@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import Router from 'tarojs-router-next'
+import Taro from '@tarojs/taro'
+// import Router from 'tarojs-router-next'
 
 const props = defineProps<{
   title: string
   label?: string
 }>()
 function handleLabelClick() {
-  Router.toCourseAll()
+  Taro.navigateTo({ url: '/pages/course-all/index' })
 }
 </script>
 
