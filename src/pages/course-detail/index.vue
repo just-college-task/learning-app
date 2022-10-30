@@ -2,6 +2,7 @@
 import Taro, { useRouter } from '@tarojs/taro'
 import { ref } from 'vue'
 import { useCourseQuery } from '@/composables/courses'
+import CommentView from './views/comments.vue'
 
 const router = useRouter()
 const courseId = Number(router.params.id!)
@@ -41,7 +42,9 @@ function handleJoinClicked() {
             </view>
           </view>
         </nut-tabpane>
-        <nut-tabpane title="评价 292"> Tab 2 </nut-tabpane>
+        <nut-tabpane title="评价 292">
+          <comment-view :courseId="courseId" />
+        </nut-tabpane>
       </nut-tabs>
     </view>
     <view class="w-full px-4 py-2 box-border bg-white border-t-2 border-gray-200">
